@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	list-style: none;
+	text-decoration: none;
+}
+
+body{
+	background:url(Images/Dashboard.jpg);
+	background-size: cover;
+	height: auto;
+	width: 100%;
+}
+
+.header {
+	position: relative;
+}
+
+.header-box {
+	width: 100%;
+	height: 57px;
+	background-color: rgba(249,249,249,1)/*rgba(243,240,240,1.00);/* rgba(251,251,251,1.00);*/
+}
+
+.header-box img {
+	width:190px;
+	height: 44px;
+	position: absolute;
+	top: 7px;
+	left: 55px;
+	z-index: 1000;
+}
+
+.logo-layer {
+	width: 300px;
+	height: 57px;
+	background-color:#5FA2BF;
+	display: inline;
+	position: absolute;
+}
+
+.body-layer {
+	height: 100%;
+	width: 1050px;
+	background-color:rgba(153,153,153,0.50);
+	position: absolute;
+	right:0;
+	top:57px;
+}
+
+.side-menu-box {
+	position: absolute;
+	top: 57px;
+	background-color: rgba(39,105,132,56%); 
+	/*background-color: rgba(85,196,219,0.50); */
+	height: 100%;
+	width: 300px;
+	
+}
+
+.profile-pic-boarder {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top:30px;
+	left: 75px;
+	background-color:rgba(0,0,0,1.00);
+	border-radius: 50%;
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: transparent;
+}
+
+.profile-pic {
+	width: 120px;
+	height: 120px;
+	background-color: rgba(219,98,207,1.00);
+	border-radius: 50%;
+	position: relative;
+	top:9px;
+	left: 9px;	
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: rgba(0,0,0,1.00);
+}
+
+.user h3 {
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-size: 21px;
+	text-align: center;
+	color: rgba(255,255,255,1.00);
+	position: relative;
+	top: 190px;
+}
+
+.main-bar-box {
+	width: 1018px;
+	height: 57px;
+	background-color:rgba(51,255,204,0.35);
+	position: absolute;
+	z-index: 100;
+	right: 15px;
+	top: 67px;
+	box-shadow: 3px 3px 5px -1px rgba(75,74,74,1.00); 
+}
+
+.main-bar-box h3,h6 {
+	margin: 0;
+	margin-left: 15px;
+	color: rgba(255,255,255,1.00);
+}
+
+.main-bar-box h3 {
+	margin-top: 8px;
+	margin-bottom: 5px;
+}
+
+.header-box h5 {
+	margin: 0;
+	margin-top: 20px;
+	position: absolute;
+	
+}
+
+.header-box h5.logged {
+	right: 100px;
+	color: rgba(112,112,112,1.00);
+}
+.header-box h5.user {
+	right: 50px;
+	color: rgba(97,236,95,1.00);
+	font-weight: 600;
+}

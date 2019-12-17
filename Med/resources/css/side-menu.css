@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* Remove margin and Padding of everyhing */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Set size and backgroun color to menu container */
+.menu-container {
+	position: relative;
+	top:185px;
+	width: 300px;
+	height: auto;
+	background-color: none;
+}
+
+/* Remove bullets from menu */
+.menu-container li {
+	list-style: none;
+
+}
+
+/* Style the all menu item*/
+.menu-container a {
+	font-family: sans-serif;
+	color: rgba(255,255,255,1.00);
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	display: block;
+	padding: 10px 0px 10px 20px;
+	border-bottom: 0.5px solid rgba(251,251,251,0.2);
+}
+
+/* Change font size of DASHBOARD menu item*/
+.dashboard {
+	font-size: 17px;
+	margin-left: 10px;
+}
+
+/* Change font size of STAFF TO REPORT menu item*/
+.main-menu-item {
+	font-size: 14px;
+}
+
+/* Change font size of all sub-menu item*/
+.sub-menu-container {
+	font-size: 12.5px;
+}
+
+/* hide all sub-menu item*/
+.side-menu ul {
+	display: none;
+}
+
+/* show sub-menu item when click main menu item with JQuery*/
+.side-menu li.tap ul {
+	display:block;
+}
+
+/* Syling sub arrows*/
+.main{
+	float: right;
+	margin-right: 10px;
+	opacity: 0.95;
+    -webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+/* Syling long arrows*/
+.long{
+	opacity: 0.95;
+}
+
+/* change sub-marow when click main menu item with JQuery*/
+.side-menu li.tap .main {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+/* change color when hover on main menu item*/
+.menu-container a:hover {
+	background:rgba(51,255,204,0.30);
+}
+
+/* add b.groun color to sub menu container*/
+.sub-menu-container {
+	background-color: rgba(3,82,95,0.7); /*rgba(3,82,95,0.7); rgba(13,40,58,0.70);rgba(57,71,82,1.00); rgba(13,98,89,1.00);*/
+} 
+
+/* change font color and padding of sub menu*/
+.sub-menu-container li a{
+	color: rgba(244,244,244,1.00);
+	padding-left: 33px;
+}
+
+.material-icons.md-20 { font-size: 20px; }

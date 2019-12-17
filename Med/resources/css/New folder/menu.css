@@ -1,0 +1,44 @@
+.middle .menu li, a {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	list-style: none;
+	text-decoration: none;
+}
+
+.middle {
+	position: absolute;
+	top: 300px;
+	right: 0;
+}
+
+.menu {
+	width: 200px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.item {
+	/*border-top: 1px solid #aaa;*/
+	overflow: hidden;
+}
+
+.btn {
+	display: block;
+	padding: 10px 20px;
+	background: /*rgba(255,255,255,0.9);*/ blue;
+	color: #aaa;
+	position: relative;
+}
+
+.btn:before {
+	content: "";
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background: /*rgba(255,255,255,0.9);*/ yellow;
+	right: 20px; 
+	top :-7px;
+	transform: rotate(45deg);
+	z-index: 160;
+}

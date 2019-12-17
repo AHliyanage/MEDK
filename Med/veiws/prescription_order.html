@@ -1,0 +1,304 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+
+<!--*************************************** JQery *******************************************-->
+	
+<!------------------------------------- JQery CDN ---------------------------------------------> 
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--->
+<!------------------------------------- JQery CDN --------------------------------------------->
+	
+<!------------------------------------- JQery D.ld --------------------------------------------> 
+<script src="../resources/js/lib/jquery-3.4.1.js"></script>
+<!------------------------------------- JQery D.ld -------------------------------------------->
+
+<!--*************************************** JQery *******************************************-->
+	
+	
+<!--***************************************JQery UI *****************************************--> 
+
+<!--------------------------------------- CDN -------------------------------------------------> 
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!--------------------------------------- CDN -------------------------------------------------> 
+	
+<!--------------------------------------- D.ld ------------------------------------------------> 	
+<link rel="stylesheet" href="../resources/js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<script src="../resources/js/lib/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="../resources/js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script> 
+<!--------------------------------------- D.ld ------------------------------------------------> 
+	
+<!--*************************************** JQery UI ***************************************---> 
+
+<!--*************************************** JQery UI Theme *********************************--->
+
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+	
+<!--------------------------------------- D.ld -------------------------------------------------> 
+<!--------------------------------------- D.ld -------------------------------------------------> 
+
+<!--**************************************** JQery UI Theme **********************************-->
+<!--************************************Data ables *******************************************-->	
+<!------------------------------------- CDN-CSS -------------------------------------------->
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<!------------------------------------- CDN-CSS -------------------------------------------->
+	
+<!------------------------------------- CDN-JS -------------------------------------------->
+	<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!------------------------------------- CDN-JS -------------------------------------------->
+<!--*************************************** Data ables *******************************************-->
+
+<!-------------------------------------- Icon Libraries ---------------------------------------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-------------------------------------- Icon Libraries ---------------------------------------->
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="../resources/css/images/favicon/icons8-m-26.png" />
+
+<link rel="stylesheet" href="../resources/css/dash-board.css">
+<link rel="stylesheet" href="../resources/css/side-menu.css">
+<link rel="stylesheet" href="../resources/css/prescription_order.css">
+	
+<title>Prescription Order- MEDKNIGHT</title>
+
+<!---------------------------------------------- util.js --------------------------------------->
+<script type="text/javascript" src="../resources/js/util.js"></script>
+<!---------------------------------------------- util.js --------------------------------------->
+	
+<!----------------- Toggle sub-menu --------------------------------------->
+	<script>
+		$(document).ready(function(){
+			$('.has-sub').click(function(){
+				$(this).toggleClass('tap',400);
+			});
+		});
+	</script>
+<!----------------- Toggle sub-menu --------------------------------------->
+	
+<!----------------- Datepicker --------------------------------------->
+
+	<script>
+		$(document).ready(function(){
+			$('#datepicker').datepicker({
+				dateFormat : 'dd /mm /yy',
+				changeMonth :true,													
+				changeYear :true,
+				maxDate : 'today',
+				showAnim : 'clip',
+				showOtherMonths: true
+					
+			})
+		});
+	</script>
+<!----------------- Datepicker --------------------------------------->
+
+<!----------------- Buton Shadow --------------------------------------->
+	<script>
+		$(document).ready(function() {
+  			$("#co").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px rgba(51,255,204,1)" ,
+    			});
+  			});
+  			$("#co").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+  			$("#cancel").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px red, 1px 1px 8px rgba(255,0,4,0.5)" ,
+    			});
+  			});
+  			$("#cancel").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+		});
+	</script>
+		<script>
+		$(document).ready(function() {
+  			$("#add").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#add").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+  			$("#new").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#new").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+
+
+  			//image click, show datepicker
+  			$('#cal2').click(function() {
+      			$('#datepicker').datepicker('show');
+			});
+
+			/*----------------- customer-table -----------*/
+			$("#pre_order").DataTable({
+			"data":[],
+			"columns": [
+				{"title": "Order No."},
+				{"title": "Status"},
+				{"title": "Invoicing"},
+				],
+			"columnDefs": [
+        		//{ targets: [0], visible: false},
+        		{ width: "35%", targets: 0},
+        		{ width: "35%", targets: 1},
+        		{ width: "30%", targets: 2},
+        		
+        	]
+		});
+	
+		/*load();*/
+		});
+	</script>
+<!----------------- Buton Shadow --------------------------------------->
+	
+</head>
+
+<body>
+	
+	<div class="body-layer"></div>
+	<section class="header">
+		<div class="header-box">
+			<figure>
+				<div class="logo-layer"></div>
+				<img src="../resources/css/Images/Logo.png" alt="logo">
+			</figure>
+			<h5 class="logged">Logged In As: </h5>
+			<h5 class="user">Admin</h5>
+		</div>
+	</section>
+	
+	<section class="side-menu-box">
+		<div class="profile-pic-boarder">
+			<div class="profile-pic">
+			</div>
+		</div>
+		
+		<div class="user">
+			<h3>John Doy</h3>
+		</div>
+		
+		<div class="menu-container">
+		<ul class="side-menu">
+			<li><a href="#" class="dashboard">Dashboard</a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Staff<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="add_member.html"><i class="material-icons">arrow_right_alt</i>Add Member</a></li>
+					<li><a href="#">Manage Member</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Supplier<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Supplier</a></li>
+					<li><a href="#">Manage Supplier</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Customer<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Customer</a></li>
+					<li><a href="#">Manage Customer</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Products<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Stock<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Sales<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Purchases<i class="material-icons main md-20">chevron_right</i></a></li>				
+			<li class="has-sub"><a href="#" class="main-menu-item">Expenses<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Reports<i class="material-icons main md-20">chevron_right</i></a></li>
+		</ul>
+	</div>
+	</section>
+	
+	<section class="main-bar">
+		<div class="main-bar-box">
+			<h3>PRESCRIPTION ORDER</h3>
+			<h6>Home / Prescription / Prescription Order</h6>
+		</div>
+	</section>
+
+	<section class="content">
+
+	<div class="tableBoxGray">
+
+		<div class="topic">
+			<h4>PRESCRIPTION ORDER</h4>
+		</div>
+
+		<div id="wrapper">
+			<div id="Pre_order">
+				<table id="pre_order" cellspacing="0" width="100%" class="display cell-border stripe">
+
+				</table>
+			</div>
+		</div>
+		
+		<!--<section id="tableP">
+			<table id="tablePre">
+				<tr>
+    				<th id="o">Order No</th>
+    				<th id="t">Status</th>
+    				<th id="th">Invoicing</th>
+  				</tr>
+  				<tr>
+    				<td></td>
+    				<td></td>
+    				<td></td>
+    			</tr>
+
+			</table>-->
+
+		</section>
+	
+	</div>
+	</section>
+
+	<script type="text/javascript">
+		function load(){
+		drawTable("pre_order",[]);
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var resp = jps(this.responseText);         	
+				if(resp["success"]){
+					/*load data into table*/
+					drawTable("pre_order",resp["success"]);
+				}else{
+					/*unexpected error if none of the above*/
+					unexpectedAlertModal("Error", "Unexpected error","bg-danger");
+				}
+		   }
+		};
+		xhttp.open("POST","../controllers/prescription_orderMed.php", true);
+		xhttp.send();
+	}	</script>
+	
+</body>
+	
+</html>

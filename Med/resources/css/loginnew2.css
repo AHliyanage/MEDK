@@ -1,0 +1,300 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	src :url(../assets/Fonts/Assistant/Assistant-SemiBold.ttf);
+	font-family: Assistant;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body::after {
+	content: "";
+	display: block;
+	background: url(Images/Bag_Image.jpg);
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
+.logo {
+	margin-bottom: 22px;
+	padding-top: 25px;
+	width: 100%;
+	height: 100px;
+}
+
+.logo-img img {
+  display: block;
+  margin-top: 43px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.sign-in{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 35px;
+}
+
+.sign-in-box{
+	display: none;
+	position: relative;
+	right:15px;
+	background-color:rgba(68,157,207,0.4);
+	height: 420px;
+	width: 430px;
+	color: #FFFFFF;
+	border: 1px solid rgba(255,255,255,0.2);
+	box-shadow: 2px 5px 12px rgba(0,0,0,0.5);
+	
+}
+
+.form-login {
+	margin-top: 15px;
+	position: absolute;
+	left: 40px;
+}
+
+.form-login h3 {
+	font-family: Assistant;
+}
+
+a{
+  	text-decoration: none;
+	color: rgba(255,255,255,0.4);
+	font-size: 14px;
+	display: block;
+	text-align: center;
+	position: relative;
+	top: 300px;
+}
+
+a:hover {
+	color: rgba(255,255,255,1.00);
+	
+}
+
+.input-fields {
+	position: relative;
+	width: 347px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #F5F3F3;
+	height: 35px;
+	color: #FFFFFF;
+	font-size: 14px;
+	outline: none;
+	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+	
+}
+
+.input-fields:focus {
+	box-shadow: 5px 5px 15px 0 rgba(255,255,255,0.5);
+	border-radius: 20px;
+	padding-left: 10px;
+}
+
+#un{
+	margin: 0 0 0 0;
+	top: 20px;
+}
+
+#un::placeholder{
+	color: rgba(228,227,227,1.00);
+	/*padding-left: 5px;*/
+	
+}
+
+#pw{
+	margin: 0 0 0 0;
+	top: 53px;
+}
+
+#pw::placeholder{
+	color: rgba(228,227,227,1.00);
+	/*padding-left: 5px;*/
+}
+
+#pw-circle{
+	width: 34px;
+	height: 32px;
+	border-radius: 100%;
+	position: absolute;
+	right: 40px;
+	top: 154px;
+	
+	background-color:rgba(180,184,167,0.5);
+	z-index: 0;
+	display: none;
+}
+
+#visible {
+ 	position: absolute; 
+	top: 158px; 
+	right: 45px ;
+	size: 10px;
+	z-index: 1;
+}
+
+#visible:hover {
+ 	cursor: pointer;
+}
+
+#visible:hover > #pw-circle{
+ 	display: visible;
+}
+
+.chk-button {
+	position: relative;
+	top: 260px;
+	left: 40px;
+}
+
+.chkbox {
+	width: 347px;
+	background: transparent;
+	border: none;
+	height: 35px;
+	color: #FFFFFF;
+	font-size: 13px;
+	outline: none;
+	margin: 0 0 0 0;
+	font-family: arial;
+	
+}
+
+#submit {
+	border-radius: 25px;
+	width: 347px;
+	height: 33px;
+	color: #FFFFFF;
+	font-size: 14px;
+	outline: none;
+	border: 1px solid rgba(255,255,255,1.00);
+	background-color:rgba(255,255,255,0.2);
+	box-shadow: 4px 5px 10px -3px rgba(0,0,0,0.3);
+
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+/*	background: transparent;
+	border: 1px solid rgba(255,255,255,0.5);
+	box-shadow: 5px 5px 15px 0 rgba(255,255,255,0.5);
+    }*/
+
+#submit:hover {	
+	border: 1px solid rgba(255,255,255,0.5);
+	background-color:rgba(12,169,217,1.00);
+		}
+
+.val-error{
+	
+	display: none;
+	width: 347px;
+	height: 17px;
+	border-radius: 8px;
+	
+	background-color: rgba(255,255,255,0.5);
+  	color:rgba(223,5,5,1.00);
+  	font-size: 13px;
+	
+	border-top: 1.5px solid rgba(255,255,255,1.00);
+	border-bottom: 1.5px solid rgba(255,255,255,1.00);
+	border-left: 0.5px solid rgba(255,255,255,1.00);
+	border-right: 0.5px solid rgba(255,255,255,1.00);
+	text-indent: 5px;
+
+	position: fixed;
+	top: 320px;
+	/* opion 2
+	width: 347px;
+	height: 25px;
+	border-radius: 8px;
+	
+	background-color: rgba(255,255,255,0.5);
+  	color:rgba(223,5,5,1.00);
+	
+	border-top: 1.5px solid rgba(255,255,255,1.00);
+	border-bottom: 1.5px solid rgba(255,255,255,1.00);
+	border-left: 0.5px solid rgba(255,255,255,1.00);
+	border-right: 0.5px solid rgba(255,255,255,1.00);*/
+	
+	/* option 3
+	width: 347px;
+	height: 25px;
+	border-radius: 8px;
+	
+	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);*/
+	
+	/* option 4
+	width: 347px;
+	height: 25px;
+	border-radius: 8px;
+	
+	background-color: rgba(5,66,91,0.25);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 1.5px solid rgba(5,66,91,1.00);
+	border-bottom: 1.5px solid rgba(5,66,91,1.00);
+	border-left: 0.5px solid rgba(5,66,91,1.00);
+	border-right: 0.5px solid rgba(5,66,91,1.00);*/
+	
+	
+}
+
+.passwd,.othr {
+	top: 392px;
+}
+
+
+.non-val-error{
+	/*width: 347px;
+	height: 25px;
+	border: 0.5px solid rgba(247,6,6,1.00);
+	background: rgba(255,255,255,0.5);
+	border-radius: 10px;*/
+	display: none;
+	
+	width: 347px;
+	height: 17px;
+	border-radius: 8px;
+	
+	background-color: rgba(255,255,255,0.5);
+  	color:rgba(223,5,5,1.00);
+  	font-size: 13px;
+	
+	border-top: 1.5px solid rgba(255,255,255,1.00);
+	border-bottom: 1.5px solid rgba(255,255,255,1.00);
+	border-left: 0.5px solid rgba(255,255,255,1.00);
+	border-right: 0.5px solid rgba(255,255,255,1.00);
+
+	text-indent: 5px;
+	position: fixed;
+	top: 392px;
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+
+

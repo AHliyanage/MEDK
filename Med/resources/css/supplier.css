@@ -1,0 +1,651 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*------------ Topic --------------*/
+.content .topic h4 {
+	position: relative;
+	z-index: 101;
+	left: 15px;
+	top: 5px;
+	color: rgba(75,3,6,1.00); 
+	font-size: 20px;
+}
+/*rgba(61,19,0,1.00); rgba(3,76,102,1.00); rgba(46,3,4,1.00)*/
+
+.tableBoxGray {
+	width: 1018px;
+	/*height: auto;*/
+	height: 520px;
+	background-color:rgba(221,219,219,0.8);
+	position: absolute;
+	z-index: 100;
+	right: 15px;
+	top: 160px;
+	padding-bottom: 15px;
+}
+
+#wrapper {
+	height: auto;
+	width: 990px;
+	margin-left: 15px;
+}
+
+#Supplier {
+	margin-top: 15px;
+	border-radius: 7px;
+	background: lightseagreen;
+	height:auto;
+	padding: 15px;
+}
+
+/*------------------------------------------------- table --------------------------------------------------------------------------*/
+table.dataTable thead th{
+	height: 30px;
+}
+
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disab0led {
+	background-color: rgba(37,56,60,0.7);
+	color: #ffffff;
+}
+
+th {
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    border: none;
+    border-bottom: 1px solid #777;
+    background: transparent;
+}
+
+body {
+    line-height: 15px;
+}
+
+table.dataTable.stripe tbody tr.odd,table.dataTable.display tbody tr.even{
+	background: #ffffff;
+	cursor: pointer;
+}
+
+table.dataTable.display tbody tr:hover{
+	/*background: #D3CECC;
+	background:#8BC8AA;
+	background:#8abaae;
+	background: #e8f1ea;*/
+	background:#b8d5cd;
+	cursor: pointer;
+	color:#000000;
+}
+
+table.dataTable.display tbody tr:hover>td {
+border-top: 1px solid #ffffff;
+border-bottom: 1px solid #ffffff;
+}
+
+
+table.dataTable.display tbody tr:active>td{
+	border-bottom-color: rgba(3,119,114,1);
+	border-top-color: rgba(3,119,114,1);
+}
+
+
+table.dataTable.cell-border tbody th, table.dataTable.cell-border tbody td {
+    border-top: 1px solid #9becf14a;
+    border-right: 1px solid #9becf14a;
+}
+
+/*---------------search-box--------------*/
+.dataTables_wrapper .dataTables_filter input {
+	    border-bottom: 1px solid #777;
+	    /*border-bottom: 1px solid #ffffff;*/
+	    outline: none;
+	}
+
+/*---------------search-line--------------*/
+.line {
+	position: absolute;
+    right: 100px;
+	
+	content: '';
+	
+	height: 1.5px;
+    background: #ffffff;
+    transition: all 0.5s ease-in;
+    width: 0px;
+    top: 18px; 
+}
+
+input:focus ~ .line {
+
+	width: 200px;
+    margin-right: -100px;
+}
+
+/*---------------table button--------------*/
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+background: linear-gradient(to bottom, #fff 0%, #4bebf3 100%);
+}
+
+/*------------------------------------------------- table --------------------------------------------------------------------------*/
+
+/* supplier model*/
+.modal {
+  display: none;/* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 175; /* Sit on top */
+  left: 0;
+  top: 0px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(34,22,10, 0.7); /* Black w/ opacity */
+  transition: .5s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: relative;
+  top: -80px;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-content:before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right:-20px; 
+	bottom:-20px;
+	filter: blur(10px);
+}
+
+.profile-pic-boarder-model {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top:60px;
+	left: 600px;
+	background-color:rgba(0,0,0,1.00);
+	border-radius: 50%;
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: transparent;
+	z-index: 179;
+}
+
+.profile-pic-model {
+	width: 120px;
+	height: 120px;
+	background-color: rgba(219,98,207,1.00);
+	border-radius: 50%;
+	position: relative;
+	top:9px;
+	left: 10px;	
+	border:0.5px solid /*rgba(255,255,255,1.00)*/#000;
+	background: rgba(0,0,0,1.00);
+	z-index: 179;
+}
+
+.modal .modal-content #detailCus {
+	margin-top: 80px;
+	margin-left: 40px;
+
+}
+
+.modal .modal-content #detailCus .box{
+	width: 350px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid red;
+	height: 10px;
+	margin-top: 18px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.button {
+	position: relative;
+	z-index: 170;
+}
+
+#add {
+	position: absolute;
+	width: 85px;
+	height: 35px;
+	border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+	color: rgba(255,255,255,1.00);
+	font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+
+  	top: -15px;
+	right:100px;
+	border: 1.5px solid rgba(255,255,255,1.00);
+	background-color: rgba(255,255,255,0.2);
+	
+}
+
+#add:hover {
+  	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);
+}
+
+/* new supplier */
+#new{
+
+	width: 85px;
+	height: 30px;
+	border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+	color: rgba(255,255,255,1.00);
+	font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+
+	border: 1.5px solid rgba(255,255,255,1.00);
+	background-color: rgba(255,255,255,0.2);
+
+	margin-top: 20px;
+	margin-bottom: 15px;
+
+	position: absolute;
+	top: -230px;
+	right:14px;
+	z-index: 200;
+
+}
+
+#new:hover {
+  	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);
+}
+
+
+/*new supplier model*/
+.SupModal {
+ display: none;
+  position: fixed; 
+  z-index: 100; 
+  left: 0;
+  top: 0px;
+  width: 100%; 
+  height: 100%; 
+  overflow: scroll; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(34,22,10, 0.7); 
+  transition: .5s;
+}
+
+/*new supplier model-content */
+.newSupModal-content {
+  position: relative;
+  top: -80px;
+  background: url(Images/Dashboard.jpg); 
+  background-size: cover;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.newSupModal-content:before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right:-20px; 
+	bottom:-20px;
+	filter: blur(10px);
+}
+
+#newSupModal .newSupModal-content #addSupWrap {
+	border: 1px solid #bbb;
+	border-radius: 7px;
+	padding: 0 15px 15px 15px;
+}
+
+.SupModal .newSupModal-content #addSupWrap .topic2{
+	position: relative;
+	z-index: 101;
+	left: 0px;
+	top: 5px;
+	color: rgba(75,3,6,1.00); 
+	font-size: 20px;
+}
+
+form{
+	position: relative;
+	z-index: 101;
+	top: 10px;	
+}
+
+.input {
+    position: relative;
+   
+}
+
+.supplier-details {
+	margin: 0px;
+	margin-bottom: 12px;
+	height: 30px;
+	width: 650px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid rgba(200,199,199,1.00);
+	
+	position: relative;
+    display: inline-block;
+	
+	color: rgba(255,255,255,1.00);
+	font-size: 14px;
+}
+
+.supplier-details::placeholder {
+	/*color: rgba(61,19,0,0.7);
+	/*color: rgba(2,62,67,1.00);*/
+	color: rgba(239,239,239,0.9);
+}
+
+/*------------- drop Down -----------------*/
+#compony,#product {
+	margin:18px 0px 10px 0px;
+	height: 30px;
+	width: 650px;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	border: 1px solid rgba(200,199,199,1.00);
+	color: #FFFFFF;
+	border-radius: 25px;
+	
+	position: relative;
+    display: inline-block;
+	
+	color: rgba(255,255,255,1.00);
+	font-size: 14px;
+}
+/*------------- drop Down -----------------*/
+
+.line {
+	position: absolute;
+    left: 350px;
+	
+	content: '';
+	
+	height: 2px;
+    background:rgba(58,57,57,1.00);
+    transition: all 0.5s ease-in;
+    width: 0px;
+    top: 29px; 
+}
+
+.supplier-details:focus {
+outline: none;
+}
+
+input:focus ~ .line {
+
+	width: 650px;
+    margin-left: -350px;
+}
+
+/*------------------ vericle line -------------------------- */
+.v-line {
+	width: 1px;
+	height: 330px;
+	background: rgba(200,199,199,1.00);
+	position: absolute;
+	z-index: 102;
+	left: 725px;
+	top: 100px;
+	
+}
+/*------------------ vericle line -------------------------- */
+
+/*------------------ member profile -------------------------- */
+.sup-profile-pic-boarder {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top:50px;
+	right: 70px;
+	background-color:rgba(0,0,0,1.00);
+	border-radius: 50%;
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: transparent;
+}
+
+.sup-profile-pic {
+	width: 120px;
+	height: 120px;
+	background-color: rgba(219,98,207,1.00);
+	border-radius: 50%;
+	position: relative;
+	top:10px;
+	left: 10px;	
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: rgba(0,0,0,1.00);
+}
+
+.supplier h3 {
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-size: 21px;
+	text-align: center;
+	color: rgba(67,67,67,0.7);
+	position: absolute;
+	z-index: 300px;
+	top: 195px;
+	right: 70px;
+}
+/*------------------ member profile -------------------------- */
+
+/*------------------ Buttons -------------------------- */
+.button {
+	position: relative;
+	z-index: 103;
+}
+
+#upload {
+	position: relative;
+	right: -720px;
+	top: -202px;
+	z-index: 300;
+	opacity: 0;
+}
+
+#browse {
+	position: absolute;
+	z-index: 295;
+	height: 25px;
+	width: 90px;
+	right: 95px;
+	top: 225px;
+	border-radius: 5px;
+	outline: none;
+	font-size: 16px;
+	
+    background-color: transparent;
+    
+	border-top: 2px solid rgba(255,255,255,1.00);
+	border-bottom: 2px solid rgba(255,255,255,1.00);
+	border-left: 1px solid rgba(255,255,255,1.00);
+	border-right: 1px solid rgba(255,255,255,1.00);
+	
+	color: rgba(255,255,255,1.00);
+	
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+#browse:hover {
+  	background-color: rgba(255,255,255,0.5);
+  	color: #555555;
+}
+
+#upload:hover ~ #browse{
+  	background-color: rgba(255,255,255,0.5);
+  	color: #555555;
+}
+
+
+#add,#cancel {
+	position: relative;
+	width: 85px;
+	height: 35px;
+	border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+	color: rgba(255,255,255,1.00);
+	font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+#cancel {
+	top:0px;
+	left: 725px;
+	border: 1.5px solid rgba(255,0,4,0.7);
+	background-color: rgba(51,255,204,0.15);
+}
+
+#cancel:hover {
+  	background-color: rgba(255,255,255,0.5);
+  	color:rgba(223,5,5,1.00);
+	
+	border-top: 2px solid rgba(255,255,255,1.00);
+	border-bottom: 2px solid rgba(255,255,255,1.00);
+	border-left: 1px solid rgba(255,255,255,1.00);
+	border-right: 1px solid rgba(255,255,255,1.00);
+}
+
+#add {
+	top: 0px;
+	left:725px;
+	margin-right: 10px;
+	border: 1.5px solid rgba(255,255,255,1.00);
+	background-color: rgba(255,255,255,0.2);
+	
+}
+
+#add:hover {
+  	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);
+}
+
+/*#add {
+	top: 400px;
+	right:175px;
+	border: 1.5px solid rgba(51,255,204,0.7);
+	background-color: rgba(51,255,204,0.15);
+	
+}
+
+#add:hover {
+  	background-color: rgba(255,255,255,0.2);
+  	color: rgba(4,133,205,1.00);
+	
+	border-top: 2px solid rgba(255,255,255,1.00);
+	border-bottom: 2px solid rgba(255,255,255,1.00);
+	border-left: 1px solid rgba(255,255,255,1.00);
+	border-right: 1px solid rgba(255,255,255,1.00);
+} */
+
+/*------------------ Buttons -------------------------- */
+
+.is-invalid {
+  border-color: red;
+}
+
+.val-error {
+	position: absolute;
+	background-color: red;
+	left: 650px;
+	z-index: -5;
+	display: none;
+}
+.non-val-error {
+	position: absolute;
+	background-color: red;
+	left: 650px;
+	z-index: -5;
+	display: none;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+	border-radius: 4px;
+	margin: 2px 2px;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid #aed0ea;
+    box-shadow: 1px -1px 10px 0.5px rgba(3,82,95,0.6);
+ 
+}
+
+.msg {
+  width: 500px;
+  height: 50px;
+  background-color: rgba(34,22,10, 0.8);
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+  position:relative;
+  top:660px;
+  left: 820px;
+  z-index: 168;
+  transition: .3s;
+  padding-left: 20px;
+  padding-top:  30px;
+  border:1px solid rgba(255,255,255,0.5);
+  visibility: hidden;
+}
+
+#message {
+	color: #FFF;
+	vertical-align: center;
+}
+
+.supplier-profile .sup-profile-pic-boarder .sup-profile-pic #img {
+	/*width: 120px;
+	height: 120px;
+	/*background-color: red/*rgba(219,98,207,1.00)*/
+	border-radius: 50%;
+	position: relative;
+	top:-2px;
+	left: -2px;
+	z-index: 200;	
+	border:1px solid rgba(255,255,255,1.00);
+	/*background: transparent;*/
+	opacity: 1;
+}

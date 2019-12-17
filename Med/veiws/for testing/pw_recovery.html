@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../resources/css/pw_recovery.css">
+
+<!--- JQery D.ld ---> 
+	<script src="resources/assets/libs/jQuery/jquery-3.4.1.js"></script>
+<!-- Util js -->
+	<script src="resources/js/util.js"></script>
+
+<!-- Fade In - OnLoad -->
+	<script>
+		$(document).ready(function(){
+		$('body').css('display', 'none');			
+		$('body').fadeIn(500);
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+		//$('.sign-in-box').slideDown(1200);
+		$('.sign-in-box').fadeIn(1200);		
+		});
+	</script>
+<!-- Fade In - OnLoad -->
+
+<!-- Toggle Password -->
+	<script>
+		function passwordVisibility() {
+  		var x = document.getElementById("pw");
+  		var y = document.getElementById("visible");
+  			if (x.type === "password") {
+    			x.type = "text";
+    			y.src = "resources/css/Images/Icons/visibility.png";
+  			} else {
+    			x.type = "password";
+    			y.src = "resources/css/Images/Icons/visibilitynon.png";
+  			}
+		}
+	</script>
+<!-- Toggle Password -->
+
+<!-- Button Shaow -->
+<script>
+		$(document).ready(function() {
+
+  			$("#submit").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "5px 5px 15px rgba(255,255,255,0.5), 5px 5px 15px rgba(255,255,255,0.5)",
+    			});
+  			});
+  			$("#submit").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+  			$("#visible").mouseenter(function() {
+				$("#pw-circle").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#visible").mouseout(function() {
+				$("#pw-circle").css({					
+      				"display": "none",
+    			});
+  			});
+
+  			$("#visible").mousedown(function() {
+				$("#pw-circle").css({
+      				"box-shadow": "0 0 3px 0 rgba(255,255,255,0.5)",//#d3d3d3
+    			});
+  			});
+  			$("#visible").mouseup(function() {
+    			$("#pw-circle").css({
+      			"box-shadow": "none",
+    			});
+  			});
+		});
+</script>
+<!-- Button Shaow -->
+
+<title>Password Recovery - MEDKNIGHT</title>
+	
+</head>
+
+<body>
+
+	<section class="contain">
+		<div class="box">
+			
+			<section class="logo">
+				<div class="logo-img">
+					<img src="../resources/css/Images/Logo.png" alt="The logo">
+				</div>
+			</section>
+
+		</div>
+	</section>
+	
+	
+
+	
+	
+	
+    
+</body>
+	
+</html>

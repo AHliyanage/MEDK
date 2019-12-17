@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content .topic h4 {
+	position: absolute;
+	z-index: 101;
+	left: 330px;
+	top: 150px;
+	color: rgba(75,3,6,1.00); 	
+	font-size: 20px;
+}
+/*rgba(61,19,0,1.00); rgba(3,76,102,1.00); rgba(46,3,4,1.00)*/
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 982px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-color: #000;
+  position: relative;
+  left: 320px;
+  top: 420px;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  height: 30px;
+  background-color: rgba(100,102,102,0.5); 
+}
+
+tr{
+	background-color: #aaa;
+}
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 0;
+  margin:0;
+  height: 30px;
+}
+
+#o{
+	width:750px;
+}
+
+#t{
+	width:350px;
+}
+
+#tableP .button {
+	position: relative;
+}

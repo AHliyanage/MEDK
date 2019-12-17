@@ -1,0 +1,778 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content .topic h4 {
+	position: relative;
+	z-index: 101;
+	left: 15px;
+	top: 5px;
+	color: rgba(75,3,6,1.00); 
+		
+	font-size: 20px;
+}
+/*rgba(61,19,0,1.00); rgba(3,76,102,1.00); rgba(46,3,4,1.00)*/
+
+.tableBoxGray {
+	width: 1018px;
+	height: auto;
+	background-color:rgba(221,219,219,0.8);
+	position: absolute;
+	z-index: 100;
+	right: 15px;
+	top: 160px;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+#wrapper {
+	height: auto;
+	width: 990px;
+	margin-left: 15px;
+}
+
+.ui-widget-header {
+	background: none;
+	border: none;
+}
+
+#tabs {
+	background: transparent;
+	border: 1px solid silver;
+	box-shadow: 2px 2px 10px 5px rgba(187,187,187,1.00)/*rgba(13,98,89,1.00)*/;
+	padding: 5px 10px;
+	position: relative;
+	z-index: 0;
+}
+
+/*staff sections box */
+#Admin,#Manager, #Pharmacist, #Cashier {
+	background: lightseagreen;
+	height:500px;
+}
+
+/*staff sections box border*/
+.ui-tabs .ui-tabs-panel {
+	border: 1px solid rgba(228,228,228,1.00);
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border-top-right-radius: 7px;
+	border-top-left-radius: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/*------------------------------------------------- tabs --------------------------------------------------------------------------*/
+/*Unvisited tabs background color*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+	background: rgba(255,255,255,1.00);
+	
+}
+
+/*Unvisited tabs text color*/
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button {
+	color: rgba(0,0,0,0.8);
+}
+
+/*change tabs background color*/
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+	background: lightseagreen;
+	border: 1px solid #ffffff;
+	outline: none;
+}
+
+/*When enter tabs change text color*/
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: rgba(255,255,255,1.00);
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	outline: none;
+}
+
+/*When enter tabs remove outline*/
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button:focus{
+	outline:none;
+}
+/*------------------------------------------------- tabs --------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------- table --------------------------------------------------------------------------*/
+table.dataTable thead th{
+	height: 30px;
+}
+
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disab0led {
+	background-color: rgba(37,56,60,0.7);
+	color: #ffffff;
+}
+
+th {
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    border: none;
+    border-bottom: 1px solid #777;
+    background: transparent;
+}
+
+body {
+    line-height: 15px;
+}
+
+table.dataTable.stripe tbody tr.odd,table.dataTable.display tbody tr.even{
+	background: #ffffff;
+	cursor: pointer;
+}
+
+table.dataTable.display tbody tr:hover{
+	/*background: #D3CECC;
+	background:#8BC8AA;
+	background:#8abaae;
+	background: #e8f1ea;*/
+	background:#b8d5cd;
+	cursor: pointer;
+	color:#000000;
+}
+
+table.dataTable.display tbody tr:hover>td {
+border-top: 1px solid #ffffff;
+border-bottom: 1px solid #ffffff;
+}
+
+
+table.dataTable.display tbody tr:active>td{
+	border-bottom-color: rgba(3,119,114,1);
+	border-top-color: rgba(3,119,114,1);
+}
+
+
+table.dataTable.cell-border tbody th, table.dataTable.cell-border tbody td {
+    border-top: 1px solid #9becf14a;
+    border-right: 1px solid #9becf14a;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+	    border-bottom: 1px solid #777;
+	    /*border-bottom: 1px solid #ffffff;*/
+	    outline: none;
+	}
+
+
+.line {
+	position: absolute;
+    right: 100px;
+	
+	content: '';
+	
+	height: 1.5px;
+    background: #ffffff;
+    transition: all 0.5s ease-in;
+    width: 0px;
+    top: 18px; 
+}
+
+input:focus ~ .line {
+
+	width: 200px;
+    margin-right: -100px;
+}
+
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+background: linear-gradient(to bottom, #fff 0%, #4bebf3 100%);
+}
+/*------------------------------------------------- table --------------------------------------------------------------------------*/
+
+/* staff model*/
+.modal {
+   display: none;/* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 175; /* Sit on top */
+  left: 0;
+  top: 0px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(34,22,10, 0.7); /* Black w/ opacity */
+  transition: .5s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: relative;
+  top: -80px;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-content:before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right:-20px; 
+	bottom:-20px;
+	filter: blur(10px);
+}
+
+.profile-pic-boarder-model {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top:60px;
+	left: 600px;
+	background-color:rgba(0,0,0,1.00);
+	border-radius: 50%;
+	border:0.5px solid rgba(255,255,255,1.00);
+	background: transparent;
+	z-index: 179;
+}
+
+.profile-pic-model {
+	width: 120px;
+	height: 120px;
+	background-color: rgba(219,98,207,1.00);
+	border-radius: 50%;
+	position: relative;
+	top:9px;
+	left: 10px;	
+	border:0.5px solid /*rgba(255,255,255,1.00)*/#000;
+	background: rgba(0,0,0,1.00);
+	z-index: 179;
+}
+
+.modal .modal-content #detailStaff1 {
+	margin-top: 80px;
+	margin-left: 40px;
+
+}
+
+.modal .modal-content #detailStaff1 .box1{
+	width: 350px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid red;
+	height: 10px;
+	margin-top: 18px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.modal .modal-content #detailStaff2 {
+	position: absolute;
+	top: 155px;
+	left: 520px;
+}
+
+.modal .modal-content #detailStaff2 .box2{
+	width: 350px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid red;
+	height: 10px;
+	margin-top: 18px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.button {
+	position: relative;
+	z-index: 170;
+}
+
+#new{
+
+	width: 85px;
+	height: 30px;
+	border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+	color: rgba(255,255,255,1.00);
+	font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+
+	border: 1.5px solid rgba(255,255,255,1.00);
+	background-color: rgba(255,255,255,0.2);
+
+	margin-top: 20px;
+	margin-bottom: 15px;
+
+	position: absolute;
+	top: -560px;
+	right:30px;
+	z-index: 200;
+
+
+	/*background-color: rgba(255,255,255,0.5);
+  	color: #555555;*/
+}
+
+#new:hover {
+  	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);
+}
+
+
+/*new member model*/
+.MemModal {
+  display: none; 	/*Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(34,22,10, 0.7); /* Black w/ opacity */
+  transition: .5s;
+}
+
+/*new member model-content */
+.newMemModal-content {
+  position: relative;
+  top: -80px;
+  background: url(Images/Dashboard.jpg); 
+  background-size: cover;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.newMemModal-content:before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right:-20px; 
+	bottom:-20px;
+	filter: blur(10px);
+}
+
+#newMemModal .newMemModal-content #addMemWrap {
+	border: 1px solid #bbb;
+	border-radius: 7px;
+	padding: 0 15px 15px 15px;
+}
+
+.MemModal .newMemModal-content #addMemWrap .topic2{
+	position: relative;
+	z-index: 101;
+	left: 0px;
+	top: 5px;
+	color: rgba(75,3,6,1.00); 
+	font-size: 20px;
+}
+
+ form{
+	position: relative;
+	top: 20px;
+	z-index: 101;
+}
+
+.input {
+    position: relative;
+   
+}
+
+/*-------------Textarea----------------*/
+.qualifications {
+	margin: 0px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	height: 50px;
+	width: 650px;
+	background-color: transparent;
+	border: 1px solid rgba(200,199,199,1.00);
+	
+	position: relative;
+    display: inline-block;
+	
+	color: rgba(255,255,255,1.00);
+	font-size: 14px;
+	
+	outline: none;
+}
+
+/*.qualifications:focus {
+outline: 2px solid rgba(58,57,57,1.00); 
+border: none;
+}*/
+
+.qualifications::placeholder {
+	padding-top: 14px;
+	color: rgba(239,239,239,0.9);
+	/*color: rgba(61,19,0,0.7);
+	/*color: rgba(2,62,67,1.00);*/
+}
+
+.qualifications:focus {
+	transition: 0.5s;
+	border:2px solid rgba(58,57,57,1.00); 
+}
+
+/*-------------Textarea----------------*/
+
+.member-details {
+	margin: 0px;
+	margin-bottom: 7px;
+	height: 30px;
+	width: 650px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid rgba(200,199,199,1.00);
+	
+	position: relative;
+	
+    display: inline-block;
+	
+	color: rgba(255,255,255,1.00);
+	font-size: 14px;
+}
+
+.member-details::placeholder {
+	/*color: rgba(61,19,0,0.7);
+	/*color: rgba(2,62,67,1.00);*/
+	color: rgba(239,239,239,0.9);
+}
+
+/*------------------ radio buttons -------------------------- */
+
+.input .admin {
+	
+	margin: 20px 168px 20px 0px;
+}
+
+.input .manager {
+	margin: 20px 182px 0px 0px;
+}
+
+.input .pharmacist {
+	margin: 20px 180px 0px 0px;
+}
+
+.input #admin{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	left: 15px;
+}
+
+.input #manager{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	left: 200px;
+	
+}
+
+.input #pharmacist{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	left: 400px;
+	
+}
+
+.input #cashier{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	right: 280px;
+	
+}
+
+/*------------------ radio buttons -------------------------- */
+
+/*------------------ radio buttons -------------------------- */
+.input .male {
+	margin: 20px 168px 20px 0px;
+}
+.input #male{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	left: 15px;
+}
+
+.input #female{
+	color: rgba(239,239,239,0.9);
+	position: absolute;
+	top: 17px;
+	left: 200px;
+}
+
+
+/*------------------ radio buttons -------------------------- */
+
+.line {
+	position: absolute;
+    left: 350px;
+	
+	content: '';
+	
+	height: 2px;
+    background:rgba(58,57,57,1.00);
+    transition: all 0.5s ease-in;
+    width: 0px;
+    top: 29px; 
+}
+
+.member-details:focus {
+outline: none;
+}
+
+input:focus ~ .line {
+
+	width: 650px;
+    margin-left: -350px;
+}
+
+/*------------------ datepicker -------------------------- */
+ .input img {
+ 	position: absolute; 
+	top: 2px; 
+	right: 275px ;
+}
+
+.input img:hover {
+ 	cursor: pointer;
+}
+
+/*------------------ datepicker -------------------------- */
+
+/*------------------ vericle line -------------------------- */
+.v-line {
+	width: 1px;
+	height: 588px;
+	background: #bbb/*#000/*rgba(200,199,199,1.00)*/;
+	position: absolute;
+	z-index: 102;
+	left: 725px;
+	top: 108px;
+	
+}
+/*------------------ vericle line -------------------------- */
+
+/*------------------ member profile -------------------------- */
+.mem-profile-pic-boarder {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	top:100px;
+	left: 780px;
+	background-color:rgba(0,0,0,1.00);
+	border-radius: 50%;
+	border:0.5px solid rgba(255,255,255,1.00);/*#000;*/
+	background: transparent;
+}
+
+.mem-profile-pic {
+	width: 120px;
+	height: 120px;
+	background-color: rgba(219,98,207,1.00);
+	border-radius: 50%;
+	position: relative;
+	top:10px;
+	left: 10px;	
+	border:0.5px solid /*rgba(0,0,0,1.00)*/rgba(255,255,255,1.00);
+	background: rgba(0,0,0,1.00);
+}
+
+.member h3 {
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-size: 21px;
+	text-align: center;
+	color: rgba(67,67,67,0.7);
+	position: absolute;
+	z-index: 300px;
+	top: 242px;
+	right: 80px;
+}
+/*------------------ member profile -------------------------- */
+
+.newMemButton {
+	position: relative;
+	z-index: 103;
+}
+
+#add,#cancel {
+	position: absolute;
+	width: 85px;
+	height: 35px;
+	border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+	color: rgba(255,255,255,1.00);
+	font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+#cancel {
+	top:-15px;
+	right: 0px;
+	border: 1.5px solid rgba(255,0,4,0.7);
+	background-color: rgba(51,255,204,0.15);
+}
+
+#cancel:hover {
+  	background-color: rgba(255,255,255,0.5);
+  	color:rgba(223,5,5,1.00);
+	
+	border-top: 2px solid rgba(255,255,255,1.00);
+	border-bottom: 2px solid rgba(255,255,255,1.00);
+	border-left: 1px solid rgba(255,255,255,1.00);
+	border-right: 1px solid rgba(255,255,255,1.00);
+}
+
+#add {
+	top: -15px;
+	right:100px;
+	border: 1.5px solid rgba(255,255,255,1.00);
+	background-color: rgba(255,255,255,0.2);
+	
+}
+
+#add:hover {
+  	background-color: rgba(51,255,204,0.15);
+  	color: rgba(255,255,255,1.00);
+	
+	border-top: 2px solid rgba(51,255,204,0.7);;
+	border-bottom: 2px solid rgba(51,255,204,0.7);
+	border-left: 1px solid rgba(51,255,204,0.7);
+	border-right: 1px solid rgba(51,255,204,0.7);
+}
+
+#upload {
+	position: relative;
+	right: -700px;
+	top: -410px;
+	z-index: 104;
+	opacity: 0;
+}
+
+#browse {
+	position: absolute;
+	height: 25px;
+	width: 90px;
+	right: 65px;
+	top: -410px;
+	border-radius: 5px;
+	outline: none;
+	font-size: 16px;
+	
+    background-color: transparent;
+    
+	border-top: 2px solid rgba(255,255,255,1.00);
+	border-bottom: 2px solid rgba(255,255,255,1.00);
+	border-left: 1px solid rgba(255,255,255,1.00);
+	border-right: 1px solid rgba(255,255,255,1.00);
+	
+	color: rgba(255,255,255,1.00);
+	
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+
+#upload:hover ~ #browse{
+  	background-color: rgba(255,255,255,0.5);
+  	color: #555555;
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.val-error {
+	/*position: absolute;
+	background-color: red;
+	left: 650px;
+	z-index: -5;
+	display: none;*/
+	position: absolute;
+	text-align: right;
+	right:  0;
+	height: 10px;
+	bottom: 15px;
+	font-size: 14px;
+	color: rgba(223,5,5,1.00);;
+}
+.non-val-error {
+	position: absolute;
+	background-color: red;
+	left: 650px;
+	z-index: -5;
+	display: none;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+	border-radius: 4px;
+	margin: 2px 2px;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid #aed0ea;
+    box-shadow: 1px -1px 10px 0.5px rgba(3,82,95,0.6);
+
+}
+
+.msg {
+  width: 500px;
+  height: 50px;
+  background-color: rgba(34,22,10, 0.8);
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+  position:relative;
+  top:660px;
+  left: 820px;
+  z-index: 168;
+  transition: .3s;
+  padding-left: 20px;
+  padding-top:  30px;
+  border:1px solid rgba(255,255,255,0.5);
+  visibility: hidden;
+}
+
+#message {
+	color: #FFF;
+	vertical-align: center;
+}
+
+ .member-profile .mem-profile-pic-boarder .mem-profile-pic #img {
+	/*width: 120px;
+	height: 120px;
+	/*background-color: red/*rgba(219,98,207,1.00)*/
+	border-radius: 50%;
+	position: relative;
+	top:-2px;
+	left: -2px;
+	z-index: 200;	
+	border:1px solid rgba(255,255,255,1.00);
+	/*background: transparent;*/
+	opacity: 1;
+}
+

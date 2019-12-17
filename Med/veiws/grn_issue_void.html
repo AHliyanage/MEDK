@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	
+<!----------------- JQery CDN ---------------------------------------------> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!----------------- JQery CDN --------------------------------------------->
+	
+<!----------------- JQery D.ld --------------------------------------------> 
+	<script src="../resources/js/lib/jquery-3.4.1.js"></script>
+<!----------------- JQery D.ld -------------------------------------------->
+
+<!----------------- Toggle sub-menu --------------------------------------->
+	<script>
+		$(document).ready(function(){
+			$('.has-sub').click(function(){
+					$(this).toggleClass('tap',400);
+			});
+		});
+	</script>	
+<!----------------- Toggle sub-menu --------------------------------------->
+
+<!--***************************************JQery UI *****************************************--> 
+
+<!--------------------------------------- CDN -------------------------------------------------> 
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!--------------------------------------- CDN -------------------------------------------------> 
+	
+<!--------------------------------------- D.ld ------------------------------------------------> 	
+<link rel="stylesheet" href="../resources/js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<script src="../resources/js/lib/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="../resources/js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script> 
+<!--------------------------------------- D.ld ------------------------------------------------> 
+	
+<!--*************************************** JQery UI ***************************************---> 
+	
+<!----------------- Icon Libraries ---------------------------------------->
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!----------------- Icon Libraries ---------------------------------------->
+
+<!-- GRN table -->
+	<script>
+  
+    // ADD A NEW ROW TO THE TABLE.s
+    function addRow() {
+
+    	 // ARRAY FOR HEADER.
+    	var tableHead = new Array();
+    	tableHead = ['Item ID', 'Item', 'Batch NO', 'Return Qty','Price','Option']; 
+
+        var grnTable = document.getElementById('table-grn');
+
+        var rowCount = grnTable.rows.length;        // GET TABLE ROW COUNT.
+        var tr = grnTable.insertRow(rowCount);      // TABLE ROW.
+        tr = grnTable.insertRow(rowCount);
+
+        for (var c = 0; c < tableHead.length; c++) {
+            var td = document.createElement('td');          // TABLE DEFINITION.
+            td = tr.insertCell(c);
+
+            if (c == 5) {           // FIRST COLUMN.
+                // ADD A BUTTON.
+                var button = document.createElement('input');
+
+                // SET INPUT ATTRIBUTE.
+                txt.setAttribute('id', 'removeData');
+                button.setAttribute('type', 'button');
+                button.setAttribute('value', 'Remove');
+                button.setAttribute('style', 'height: 25px; width: 65px; border: none; background-color: transparent; border: 1.5px solid rgba(255,255,255,1.00); background-color: rgba(255,255,255,0.2); border-radius: 4px; outline: none; color: rgba(255,255,255,1.00); transition-duration: 0.4s; align: center;');
+
+                // ADD THE BUTTON's 'onclick' EVENT.
+                button.setAttribute('onclick', 'removeRow(this)');
+
+                td.appendChild(button);
+            }
+            else {
+                // CREATE AND ADD TEXTBOX IN EACH CELL.
+                var txt = document.createElement('input');
+
+                txt.setAttribute('id', 'tableData');
+                txt.setAttribute('type', 'text');
+                txt.setAttribute('value', '');
+
+                td.appendChild(txt);
+            }
+        }
+    }
+
+    // DELETE TABLE ROW.
+    function removeRow(rmvButton) {
+        var grnTable = document.getElementById('table-grn');
+        grnTable.deleteRow(rmvButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+    }
+
+    // EXTRACT AND SUBMIT TABLE DATA.
+    function submit() {
+        var grnTable = document.getElementById('table-grn');
+        var values = new Array();
+
+        // LOOP THROUGH EACH ROW OF THE TABLE.
+        for (row = 1; row < grnTable.rows.length - 1; row++) {
+            for (c = 0; c < grnTable.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
+
+                var element = grnTable.rows.item(row).cells[c];
+                if (element.childNodes[0].getAttribute('type') == 'text') {
+                    values.push("'" + element.childNodes[0].value + "'");
+                }
+            }
+        }
+        
+        // SHOW THE RESULT IN THE CONSOLE WINDOW.
+        console.log(values);
+    }
+</script>
+<!-- GRN table -->
+
+<!-- Fade In - OnLoad -->
+	<script>
+		$(document).ready(function(){
+		$('body').css('display', 'none');			
+		$('body').fadeIn(1000);
+		});
+	</script>
+<!-- Fade In - OnLoad -->
+
+<!----------------- Datepicker --------------------------------------->
+	<script>
+		$(document).ready(function(){
+
+			$('#calendar').datepicker({
+				dateFormat : 'dd /mm /yy',
+				changeMonth :true,													
+				changeYear :true,
+				maxDate : 'today',
+				showAnim : 'clip',
+				showOtherMonths: true
+					
+			});
+
+		});
+	</script>
+<!----------------- Datepicker --------------------------------------->
+
+	<script>
+		$(document).ready(function() {
+	/* ---- onclick button shadow --------*/
+			$("#browse").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#browse").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+  	/* ---- onclick button shadow--------*/
+  		/*	$("#submit").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "5px 5px 15px rgba(255,255,255,0.5), 5px 5px 15px rgba(255,255,255,0.5)",
+    			});
+  			});
+  			$("#submit").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none",
+    			});
+  			});*/
+  	/* ---- hover-GRN-circle-show --------*/
+  			$("#calendar").mouseenter(function() {
+				$("#GRN-circle").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#calendar").mouseout(function() {
+				$("#GRN-circle").css({					
+      				"display": "none",
+    			});
+  			});
+  	/* ---- hover-GRN-circle-show --------*/
+
+  	/* ---- onclick-text-box-shadow --------*/
+  			$("#day").mousedown(function() {
+				$("#day").css({
+      				"box-shadow": "0 0 3px 0 rgba(255,255,255,1)",//#d3d3d3
+    			});
+  			});
+  			$("#day").mouseup(function() {
+    			$("#day").css({
+      			"box-shadow": "none",
+    			});
+  			});
+  			$("#month").mousedown(function() {
+				$("#month").css({
+      				"box-shadow": "0 0 3px 0 rgba(255,255,255,1)",//#d3d3d3
+    			});
+  			});
+  			$("#month").mouseup(function() {
+    			$("#month").css({
+      			"box-shadow": "none",
+    			});
+  			});
+  			$("#year").mousedown(function() {
+				$("#year").css({
+      				"box-shadow": "0 0 3px 0 rgba(255,255,255,1)",//#d3d3d3
+    			});
+  			});
+  			$("#year").mouseup(function() {
+    			$("#year").css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+	/* ---- onclick-text-box-shadow --------*/
+
+  	/* ---- onclick-calendar-shadow --------*/
+  			$("#calendar").mousedown(function() {
+				$("#GRN-circle").css({
+      				"box-shadow": "0 0 5px 0 rgba(255,255,255,1)",//#d3d3d3
+    			});
+  			});
+  			$("#calendar").mouseup(function() {
+    			$("#GRN-circle").css({
+      			"box-shadow": "none",
+    			});
+  			});
+		});
+	/* ---- onclick-calendar-shadow --------*/
+	</script>
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="../resources/css/images/favicon/icons8-m-26.png" />
+
+<link rel="stylesheet" href="../resources/css/dash-board.css">
+<link rel="stylesheet" href="../resources/css/side-menu.css">
+<link rel="stylesheet" href="../resources/css/grn-issue-void.css">
+
+<title>GRN - MEDKNIGHT</title>
+	
+</head>
+
+<!---------------------------------------------- Side Menu ---------------------------------------------->
+
+
+<body>
+	<div class="body-layer"></div>
+	<section class="header">
+		<div class="header-box">
+			<figure>
+				<div class="logo-layer"></div>
+				<img src="../resources/css/Images/Logo.png" alt="logo">
+			</figure>
+			<h5 class="logged">Logged In As: </h5>
+			<h5 class="user">Admin</h5>
+		</div>
+	</section>
+	
+	<section class="side-menu-box">
+		<div class="profile-pic-boarder">
+			<div class="profile-pic">
+			</div>
+		</div>
+		
+		<div class="user">
+			<h3>John Doy</h3>
+		</div>
+		
+		<div class="menu-container">
+		<ul class="side-menu">
+			<li><a href="#" class="dashboard">Dashboard</a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Staff<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#"><span><img id="dbl-chevron" src="../resources/css/Images/Icons/sidemenu/dots-horizontal.png" alt="icon-sub-menu"></span>      View Members</a></li>
+					<li><a href="#"><span><img id="icon-add" src="../resources/css/Images/Icons/sidemenu/dots-horizontal.png" alt="icon-sub-menu"></span>      Add Member</a></li>
+					<li><a href="#"><span><img id="icon-add" src="../resources/css/Images/Icons/sidemenu/icons8-down-right-24.png" alt="icon-sub-menu"></span>      Manage Member</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Supplier<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Supplier</a></li>
+					<li><a href="#">Manage Supplier</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Customer<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Customer</a></li>
+					<li><a href="#">Manage Customer</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Products<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Stock<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Sales<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Purchases<i class="material-icons main md-20">chevron_right</i></a></li>				
+			<li class="has-sub"><a href="#" class="main-menu-item">Expenses<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Reports<i class="material-icons main md-20">chevron_right</i></a></li>
+		</ul>
+	</div>
+	</section>
+
+<!---------------------------------------------- Side Menu ---------------------------------------------->
+
+<!---------------------------------------------- Box Dashboard ------------------------------------------>
+	<section class="main-bar">
+		<div class="main-bar-box">
+			<h3>PURCHASE</h3>
+			<h6>Home/ Purchase/ GRN</h6>
+		</div>
+	</section>
+<!---------------------------------------------- Box Dashboard ------------------------------------------>
+
+<!------------------------------------------- Content --------------------------------------------------->
+<!--***************************************************************************************************-->
+
+<section class="content">
+
+<!------------------------------------------- wrapper -------------------------------------------->
+	<div class="tableBoxGray">
+	<!-------------- Topic ---------------->		
+		<div class="topic">
+			<h4>GOODS RECEIVED NOTE</h4>
+		</div>
+	<!-------------- Topic ---------------->
+
+		<section class="grn-head-left">
+			<h3>GRN No :</h3>
+			<img src="../resources/css/Images/Icons/magnify.png" alt="icon-search" id="search"><input type="text" id="findGRN" onkeyup="myFunction()" placeholder="Search GRN for void.."><span class="line"></span>
+		</section>
+
+		<section class="grn-head-right">
+			<h5 id="date">GRN date      :</h5><input type="text" id="day" placeholder="D" ><input type="text" id="month" placeholder="M" onclick="shadow()"><input type="text" id="year" placeholder="Y" ><img id="calendar" src="../resources/css/Images/Icons/calendar-month-outline.png" alt="GRN-Calendar" onclick="()"><div id="GRN-circle"></div>
+			<h5 id="type">Purchase Type :</h5>
+
+			<select id="Purchase-type">
+  				<option value="credit">Credit</option>
+  				<option value="debit">Debit</option>			
+			</select>
+		</section>
+
+		<section id="supplier-bar">
+			<div id="supplier-bar-box">
+				<Span id="sname">Supplier :</span><!--<input type="text" id="sname-text">-->
+					<select id="sname-select">			
+					</select>
+				<span id="contact-no">Contact No :</span><input type="text" id="contact-text"><span class="line2"></span>
+			</div>
+		</section>
+
+		<section id="table">
+			<table id="table-grn">
+				  <tr>
+    				<th id="o">Item ID</th>
+    				<th id="t">Item</th>
+    				<th id="th">Batch No:</th>
+    				<th id="f">Return Qty</th>
+    				<th id="fi">Price</th>
+    				<th id="s">Option</th>
+  				</tr>
+  				<tr>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="button" value="Remove" id="removeData" onclick="removeRow(this)"></td>
+  				</tr>
+			</table>
+		</section>
+
+		<section>
+			<div class="button">
+				<button type="" value="New Line" id="new" onclick="addRow()">New Line</button>
+				<button type="submit" value="Complete" id="complete" onclick="submit()">Complete</button>
+				<button type="submit" value="Create Invoice" id="invoice">Create Invoice</button>
+				<button type="submit" value="Void" id="void">Void</button>
+			</div>
+			<div id="invoice-no">
+				<input type="text" id="inv-no">
+			</div>
+		</section>
+
+		<section class="bottom-bar">
+			<div class="bottom-bar-box">
+				<span id="Issued-by">Issued By   :</span><input type="text" id="issued-name">
+			</div>
+		</section>
+
+	</div>
+<!------------------------------------------- wrapper -------------------------------------------->
+	<div class="button-last">
+		<button type="" value="New GRN" id="last-button">New GRN</button>
+	</div>
+
+</section>
+	
+<!--***************************************************************************************************-->
+<!------------------------------------------- Content --------------------------------------------------->
+
+</body>
+	
+	
+</html>
