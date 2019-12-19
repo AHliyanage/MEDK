@@ -5,7 +5,47 @@
 
 <link rel="stylesheet" href="../resources/css/recover.css">
 
-<title></title>
+<!------ JQery D.ld -----> 
+<script src="../resources/js/lib/jquery-3.4.1.js"></script>
+
+<!------- favicon ------->
+<link rel="shortcut icon" type="image/x-icon" href="../resources/css/images/favicon/icons8-m-26.png" />
+
+<script>
+		$(document).ready(function(){
+
+		/*-- Fade In - OnLoad --*/
+			$('body').css('display', 'none');			
+			$('body').fadeIn(1000);
+	
+		/*-- Button Shaow --*/
+
+  			$("#back").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px dodgerblue, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#back").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+  			$("#recover").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px rgba(164,196,0,1), 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#recover").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+  		});
+	</script>
+
+<title>MedKnight - Password Recovery</title>
 	
 </head>
 
@@ -16,9 +56,17 @@
 		<img src="../resources/css/Images/Logo.png" id="logo">
 
 		<h6>Enter your email address to recover password</h6>
-		<h2>Transparent</h2>
-		<p>wrggggg jhfkwhekfhwsjdkjwhfuw kweufhuiewuef kjdhwufh jfhwfhw nfefhweuhfw<br>
-		shfgjhgfsjgf jjhdfjsgfjsdgfjs djfskjdfhksdhfksfjsdh jdfhkshfksjdfhkdhfksjhfsk <p>
+
+		<input type="email" id="mail" placeholder="Email Address">
+		<div class="inputMail">
+			<img src="../resources/css/Images/Icons/icons8-new-post-100.png" id="imgMail">
+		</div>
+
+		<div class="btn">
+			<button id="back">Back to Login</button>
+			<button id="recover">Recover</button>
+		</div>
+
 	</div>
 </section>
     
