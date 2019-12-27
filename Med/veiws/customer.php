@@ -91,7 +91,7 @@
 			$("#customer").DataTable({
 			"data":[],
 			"columns": [
-				{"title": "Customer Code"},
+				{"title": "Customer ID"},
 				{"title": "First Name"},
 				{"title": "Last Name"},
 				{"title": "Gender"},
@@ -118,7 +118,13 @@
 		});
 	
 		load();
-
+			// data table row click, show data
+			var table = $('#customer').DataTable();
+     
+   			 $('#customer tbody').on('click', 'tr', function () {
+        			var data = table.row( this ).data();
+        			alert( 'You clicked on '+data[0]+'\'s row' );
+    			} );
 
 			$("#new").mousedown(function() {
 				$(this).css({
@@ -287,6 +293,20 @@
 
 			$('#cal2').click(function() {
       			$('#datepicker2').datepicker('show');
+			});
+
+			//click arrow, display left menu
+			$("#arrow").click(function(e){
+    			$("#lftMenu").show();
+     			e.stopPropagation();
+			});
+
+			$("#lftMenu").click(function(e){
+    			e.stopPropagation();
+			});
+
+			$(document).click(function(){
+    			$("#lftMenu").hide();
 			});
 	});
 	</script>
@@ -477,10 +497,10 @@
 			
 			<form>
 				
-				<div class="input">
+				<!--<div class="input">
 					<input type="text" name="ccode" id="ccode" class="customer-details" placeholder="Customer Code" onfocus="cleanValErrorInput('fname'); cleanDivError('fnameError');cleanDivError('otherError');">
 					<span class="line"></span><span id="fnameError" class="val-error"></span><span id="fnameError"></span>
-				</div>
+				</div>-->
 				
 				<div class="input">
 					<input type="text" name="fname" id="fname" class="customer-details" placeholder="First Name" onfocus="cleanValErrorInput('fname'); cleanDivError('fnameError');cleanDivError('otherError');">
@@ -641,25 +661,6 @@
 	</script>
 
 <script>
-		// Get the menu
-		var menuLeft = document.getElementById("lftMenu");
-
-		// Get the arrow that opens the modal
-		var arow = document.getElementById("arrow");
-
-		// clicks the arrow, open menu 
-		arow.onclick = function() {
-		  //menuLeft.style.display = "block";
-		  $("#lftMenu").fadeIn();
-		}
-
-		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
-		  if (event.target == menuLeft) {
-		    menuLeft.style.display = "none";
-		  }
-		}
-
 		//upload img
 			function readURL(input) {
 	        	if (input.files && input.files[0]) {
@@ -675,6 +676,13 @@
             		reader.readAsDataURL(input.files[0]);
         		}
     		}
+	</script>
+
+	<script>
+		function reset(){
+			$("form").trigger("reset");
+			document.getElementById("img").src = "../resources/css/Images/default/default.png";	
+		}
 	</script>
 
 </body>

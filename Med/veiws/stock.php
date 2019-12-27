@@ -108,13 +108,19 @@
 			$("#medicine").DataTable({
 			"data":[],
 			"columns": [
-				{"title": "Medicine"},
-				{"title": "Generic Name"},
+				{"title": "Name"},
+				{"title": "Discription"},
 				{"title": "Category"},
-				{"title": "Price"},
-				{"title": "Qty" },
+				{"title": "Batch"},
+				{"title": "Purchase Unit"},
+				{"title": "Sales Unit" },
+				{"title": "ROP"},
 				{"title": "Rack No."},
-				{"title": "Status"}
+				{"title": "Supplier"},
+				{"title": "Company"},
+				{"title": "Delete"},
+				{"title": "Update"}
+				
 				],
 			"columnDefs": [
         		{ width: "15%", targets: 0},
@@ -130,13 +136,19 @@
 		$("#grocery").DataTable({
 			"data":[],
 			"columns": [
-				{"title": "Medicine"},
-				{"title": "Generic Name"},
+				{"title": "Name"},
+				{"title": "Discription"},
 				{"title": "Category"},
-				{"title": "Price"},
-				{"title": "Qty" },
+				{"title": "Batch"},
+				{"title": "Purchase Unit"},
+				{"title": "Sales Unit" },
+				{"title": "ROP"},
 				{"title": "Rack No."},
-				{"title": "Status"}
+				{"title": "Supplier"},
+				{"title": "Company"},
+				{"title": "Delete"},
+				{"title": "Update"}
+		
 			],
 			"columnDefs": [
         		{ width: "15%", targets: 0},
@@ -283,8 +295,8 @@
 				var resp = jps(this.responseText);         	
 				if(resp["success"]){
 					/*load data into table*/
-					drawTable("manager",resp["success"]);
-					drawTable("pharmacist",resp["success"]);
+					drawTable("medicine",resp["success"]);
+					drawTable("grocery",resp["success"]);
 				}else{
 					/*unexpected error if none of the above*/
 					unexpectedAlertModal("Error", "Unexpected error","bg-danger");

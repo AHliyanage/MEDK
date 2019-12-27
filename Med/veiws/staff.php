@@ -388,8 +388,34 @@
       			$('#datepicker2').datepicker('show');
 			});
 
-		});
+			/*//click arrow, display left menu
+			$('#arrow').click(function() {
+      			$("#lftMenu").css({					
+      				"display": "block",
+    			});
+			});
 
+			$('window').click(function() {
+      			$("#lftMenu").css({					
+      				"display": "none",
+    			});
+			});*/
+
+			$("#arrow").click(function(e){
+    			$("#lftMenu").show();
+     			e.stopPropagation();
+			});
+
+			$("#lftMenu").click(function(e){
+    			e.stopPropagation();
+			});
+
+			$(document).click(function(){
+    			$("#lftMenu").hide();
+			});
+
+		});
+			
 				/* switch tab*/
 
 				var userType = "Admin";
@@ -406,7 +432,6 @@
 			$("#"+selectedTab).addClass("ui-tabs-active");
 
 		}
-
 
 	</script>	
 	
@@ -843,25 +868,6 @@
 	</script>
 
 	<script>
-		// Get the menu
-		var menuLeft = document.getElementById("lftMenu");
-
-		// Get the arrow that opens the modal
-		var arow = document.getElementById("arrow");
-
-		// clicks the arrow, open menu 
-		arow.onclick = function() {
-		  //menuLeft.style.display = "block";
-		  $("#lftMenu").fadeIn();
-		}
-
-		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
-		  if (event.target == menuLeft) {
-		    menuLeft.style.display = "none";
-		  }
-		}
-
 		//upload img
 			function readURL(input) {
 	        	if (input.files && input.files[0]) {
@@ -879,6 +885,12 @@
     		}
 	</script>	
 
+	<script>
+		function reset(){
+			$("form").trigger("reset");
+			document.getElementById("img").src = "../resources/css/Images/default/default.png";	
+		}
+	</script>
 	
 </body>
 </html>

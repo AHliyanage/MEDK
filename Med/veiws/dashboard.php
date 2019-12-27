@@ -147,24 +147,22 @@
 		  		$(".mkCal").fadeIn();
   			});
 
+  			//click arrow, display left menu
+			$("#arrow").click(function(e){
+    			$("#lftMenu").show();
+     			e.stopPropagation();
+			});
+
+			$("#lftMenu").click(function(e){
+    			e.stopPropagation();
+			});
+
+			$(document).click(function(){
+    			$("#lftMenu").hide();
+			});
+
   		});
-/*
-  		// display left menu onclick arrow
-			var menulft = document.getElementById("lftMenu");
 
-			// Get the button that opens the modal
-			var arow = document.getElementById("arrow");
-
-			// When the user clicks the button, open the modal 
-			arow.onclick = function() {
-			  menulft.style.display = "block";
-			}
-			//licks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-			  if (event.target == menulft) {
-			    menulft.style.display = "none";
-			  }
-			}*/
 	</script>	
 
 
@@ -338,8 +336,9 @@
 	         </tr> 
 	      </table>
 	     </section>
+	     
 	<script>
-		// Get the menu
+		/*// Get the menu
 		var menuLeft = document.getElementById("lftMenu");
 
 		// Get the arrow that opens the modal
@@ -352,11 +351,11 @@
 		}
 
 		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
+		window.onclick = function() {
 		  if (event.target == menuLeft) {
 		    menuLeft.style.display = "none";
 		  }
-		}
+		}*/
 
 		//cal function
 

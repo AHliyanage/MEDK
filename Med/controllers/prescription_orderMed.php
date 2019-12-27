@@ -17,7 +17,8 @@ function loadData(){
 					$rows=array();
 	
 					while ($row=mysqli_fetch_array($loginQueryResult)){
-						array_push($row, "<button onclick='alert()'>OK</button>");
+						array_push($row, "<button onclick='alert()' style='background:none; border:none; border-bottom:1px solid blue; color:blue;' onMouseover='myF()' id='okBtn'>OK</button>");
+
 						array_push($rows,$row);
 						//$rows[]=$row;
 					}

@@ -9,7 +9,7 @@ function loadData(){
 	try{
 			//get DB connection instance and execute query
 			$conn = getConnection();
-			$query = "SELECT cus_code,first_name,last_name,gender,dob,nic,address,contact_no,email FROM customer";
+			$query = "SELECT cus_id,first_name,last_name,gender,dob,nic,address,contact_no,email FROM customer";
 
 			$loginQueryResult = mysqli_query($conn, $query);
 			

@@ -189,7 +189,7 @@ background: linear-gradient(to bottom, #fff 0%, #4bebf3 100%);
 
 /* staff model*/
 .modal {
-   display: none;/* Hidden by default */
+  display: none;/* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 175; /* Sit on top */
   left: 0;

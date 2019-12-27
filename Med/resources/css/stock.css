@@ -22,6 +22,7 @@
 	top: 160px;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
+	padding-right: 15px/*0px*/;
 }
 
 #wrapper {
@@ -47,11 +48,16 @@
 
 	background: lightseagreen;
 	height:500px;
+
 	/*height:auto;*/
 }
 
 .tableBoxGray #wrapper #tabs #grocery,#medicine {
 	position: relative;
+	
+	display: block;
+  	overflow-x: auto;
+  	white-space: nowrap;
 }
 
 /*staff sections box border*/

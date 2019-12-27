@@ -98,6 +98,9 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 	text-align: center;
 	transition: 
 }
+ table.dataTable.cell-border tbody td {
+ 	text-align: center;
+ }
 
 .dataTables_wrapper .dataTables_filter input {
     margin-left: 0.5em;
@@ -121,8 +124,10 @@ table.dataTable.display tbody tr:hover{
 	background:#8abaae;
 	background: #e8f1ea;*/
 
-	border-bottom-color: rgba(3,119,114,1);
-	border-top-color: rgba(3,119,114,1)
+	background:#b8d5cd;
+	cursor: pointer;
+	color:#000000;
+	
 	
 }
 
@@ -133,11 +138,8 @@ border-bottom: 1px solid #ffffff;
 
 
 table.dataTable.display tbody tr:active>td{
-	;
-
-	background:#b8d5cd;
-	cursor: pointer;
-	color:#000000;
+	border-bottom-color:#aaa;
+	border-top-color: #aaa;
 }
 
 

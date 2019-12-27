@@ -78,6 +78,7 @@ a{
 	text-align: center;
 	position: relative;
 	top: 300px;
+	overflow: hidden;
 }
 
 a:hover {

@@ -1,16 +1,8 @@
-<?php 
-	session_start();
-
-	if(!isset($_SESSION['medKnightKey'])){
-		header("Location:../login.html");
-	}else{
-?>
-
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-
+	
 <!--*************************************** JQery *******************************************-->
 	
 <!------------------------------------- JQery CDN ---------------------------------------------> 
@@ -22,14 +14,13 @@
 <script src="../resources/js/lib/jquery-3.4.1.js"></script>
 <!------------------------------------- JQery D.ld -------------------------------------------->
 
-<!--*************************************** JQery *******************************************-->
+<!--************************************JQery *******************************************-->
 	
-	
-<!--***************************************JQery UI *****************************************--> 
+<!--************************************JQery UI *****************************************--> 
 
-<!--------------------------------------- CDN -------------------------------------------------> 
+<!--------------------------------------CDN -------------------------------------------------> 
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!--------------------------------------- CDN -------------------------------------------------> 
+<!--------------------------------------CDN -------------------------------------------------> 
 	
 <!--------------------------------------- D.ld -------------------------------------------------> 	
 <link rel="stylesheet" href="../resources/js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
@@ -38,6 +29,17 @@
 <!--------------------------------------- D.ld -------------------------------------------------> 
 	
 <!--*************************************** JQery UI ***************************************--> 
+
+<!--*************************************** JQery UI Theme *********************************-->
+
+<!--------------------------------------- CDN -------------------------------------------------> 
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+<!--------------------------------------- CDN ------------------------------------------------->
+	
+<!--------------------------------------- D.ld -------------------------------------------------> 
+<!--------------------------------------- D.ld -------------------------------------------------> 
+
+<!--*************************************** JQery UI Theme *********************************-->
 	
 <!--************************************Data ables *******************************************-->	
 <!------------------------------------- CDN-CSS -------------------------------------------->
@@ -60,61 +62,104 @@
 
 <link rel="stylesheet" href="../resources/css/dash-board.css">
 <link rel="stylesheet" href="../resources/css/side-menu.css">
-<link rel="stylesheet" href="../resources/css/supplier.css">
-
-<title>Supplier - MEDKNIGHT</title>
+<link rel="stylesheet" href="../resources/css/product.css">
+	
+<title>Product - MEDKNIGHT</title>
 
 <!----------------- util.js --------------------------------------->
 <script type="text/javascript" src="../resources/js/util.js"></script>
 <!----------------- util.js --------------------------------------->
 	
-
+<!----------------- Toggle sub-menu --------------------------------------->
 	<script>
 		$(document).ready(function(){
-
-			/*------------- Toggle sub-menu --------------*/
 			$('.has-sub').click(function(){
 					$(this).toggleClass('tap',500);
 			});
+		});
+	</script>	
+<!----------------- Toggle sub-menu --------------------------------------->
+	
+<!----------------- Collapse Menu --------------------------------------->
+	<script>
+		$(document).ready(function(){
+			$('#tabs').tabs({event:"click",disable:false,heightStyle:"auto"});
+		});
+	</script>	
+<!----------------- Collapse Menu --------------------------------------->
 
-			/*------------- Supplier-table ---------------*/
-			$("#supplier").DataTable({
+	<script>
+		var proType = "Medicine";
+		
+	// Collapse Menu
+	function switchTab(selectedTab){
+		var children = $("#tabList").children();
+		for(var x = 0; x<children.length ; x++){
+			if(children[x].id != selectedTab && $("#"+children[x].id).hasClass("ui-tabs-active")){
+				$("#"+children[x].id).removeClass("ui-tabs-active");
+			}				
+		}	
+
+		$("#"+selectedTab).addClass("ui-tabs-active");
+
+	}
+
+		$(document).ready(function(){
+			$("#medicine").DataTable({
 			"data":[],
 			"columns": [
-				{"title": "Supplier id"},
-				{"title": "First Name"},
-				{"title": "Last Name"},
-				{"title": "Contact No"},
-				{"title": "Address" },
-				{"title": "E-mail"},
+				{"title": "Name"},
+				{"title": "Description"},
+				{"title": "Batch"},
+				{"title": "Purchase Unit"},
+				{"title": "Sales Unit" },
+				{"title": "ROP"},
+				{"title": "Rack No."},
+				{"title": "Supplier"},
 				{"title": "Company"},
 				{"title": "Delete"},
 				{"title": "Update"}
+				
 				],
 			"columnDefs": [
-        		//{ targets: [0], visible: false},
         		{ width: "15%", targets: 0},
         		{ width: "15%", targets: 1},
         		{ width: "15%", targets: 2},
         		{ width: "10%", targets: 3},
-        		{ width: "10%", targets: 4},
+        		{ width: "12%", targets: 4},
         		{ width: "15%", targets: 5},
-        		{ width: "20%", targets: 6},
-        		{ width: "20%", targets: 7},
-        		{ width: "15%", targets: 8}
-        	]
+        		{ width: "20%", targets: 6}
+   	 		]
+		});
+
+		$("#grocery").DataTable({
+			"data":[],
+			"columns": [
+				{"title": "Name"},
+				{"title": "Description"},
+				{"title": "Batch"},
+				{"title": "Purchase Unit"},
+				{"title": "Sales Unit" },
+				{"title": "ROP"},
+				{"title": "Rack No."},
+				{"title": "Supplier"},
+				{"title": "Company"},
+				{"title": "Delete"},
+				{"title": "Update"}
+		
+			],
+			"columnDefs": [
+        		{ width: "15%", targets: 0},
+        		{ width: "15%", targets: 1},
+        		{ width: "15%", targets: 2},
+        		{ width: "10%", targets: 3},
+        		{ width: "12%", targets: 4},
+        		{ width: "15%", targets: 5},
+        		{ width: "20%", targets: 6}
+   	 		]	
 		});
 	
 		load();
-
-			// data table row click, show data
-			var table = $('#supplier').DataTable();
-     
-   			 $('#supplier tbody').on('click', 'tr', function () {
-        			var data = table.row( this ).data();
-        			alert( 'You clicked on '+data[0]+'\'s row' );
-    			} );
-
 
 			$("#new").mousedown(function() {
 				$(this).css({
@@ -127,165 +172,7 @@
     			});
   			});
 
-  			/*----------- Datepicker ------------*/
-			$('#datepicker').datepicker({
-				dateFormat : 'dd /mm /yy',
-				changeMonth :true,													
-				changeYear :true,
-				maxDate : 'today',
-				showAnim : 'clip',
-				showOtherMonths: true
-					
-			});
-
-  			$('#cldrBox').datepicker({
-				dateFormat : 'dd /mm yy',
-				showAnim : 'clip',
-				showOtherMonths: true,
-				selectOtherMonths: true
-			
-			});
-
-			/*---------- Buton Shadow -------------*/
-
-			$("#arrow").mouseenter(function() {
-				$(".arrow").css({
-      				"display": "block",
-    			});
-  			});
-  			$("#arrow").mouseout(function() {
-				$(".arrow").css({					
-      				"display": "none",
-    			});
-  			});
-
-  			$("#arrow").mousedown(function() {
-				$(".arrow").css({
-      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
-    			});
-  			});
-  			$("#arrow").mouseup(function() {
-    			$(".arrow").css({
-      			"box-shadow": "none",
-    			});
-  			});
-
-
-  			$("#noti").mouseenter(function() {
-				$(".noti").css({
-      				"display": "block",
-    			});
-  			});
-  			$("#noti").mouseout(function() {
-				$(".noti").css({					
-      				"display": "none",
-    			});
-  			});
-
-  			$("#noti").mousedown(function() {
-				$(".noti").css({
-      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
-    			});
-  			});
-  			$("#noti").mouseup(function() {
-    			$(".noti").css({
-      			"box-shadow": "none",
-    			});
-  			});
-
-
-  			$("#ccultr").mouseenter(function() {
-				$(".cal").css({
-      				"display": "block",
-    			});
-  			});
-  			$("#ccultr").mouseout(function() {
-				$(".cal").css({					
-      				"display": "none",
-    			});
-  			});
-
-  			$("#ccultr").mousedown(function() {
-				$(".cal").css({
-      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
-    			});
-  			});
-  			$("#ccultr").mouseup(function() {
-    			$(".cal").css({
-      			"box-shadow": "none",
-    			});
-  			});
-
-
-  			$("#cldr").mouseenter(function() {
-				$(".calendar").css({
-      				"display": "block",
-    			});
-  			});
-  			$("#cldr").mouseout(function() {
-				$(".calendar").css({					
-      				"display": "none",
-    			});
-  			});
-
-  			$("#cldr").mousedown(function() {
-				$(".calendar").css({
-      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
-    			});
-  			});
-  			$("#cldr").mouseup(function() {
-    			$(".calendar").css({
-      			"box-shadow": "none",
-    			});
-  			});
-
-  			$("#add").mousedown(function() {
-				$(this).css({
-      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px rgba(51,255,204,1)" ,
-    			});
-  			});
-  			$("#add").mouseup(function() {
-    			$(this).css({
-      			"box-shadow": "none"
-    			});
-  			});
-		
-  			$("#cancel").mousedown(function() {
-				$(this).css({
-      				"box-shadow": "1px 1px 8px 1px red, 1px 1px 8px rgba(255,0,4,0.5)" ,
-    			});
-  			});
-  			$("#cancel").mouseup(function() {
-    			$(this).css({
-      			"box-shadow": "none"
-    			});
-  			});
-	
-  			$("#upload").mousedown(function() {
-				$("#browse").css({
-      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
-    			});
-  			});
-  			$("#upload").mouseup(function() {
-    			$("#browse").css({
-      			"box-shadow": "none"
-    			});
-  			});
-
-  			//image click, show datepicker
-  			$('#cldr').click(function() {
-      			$('#cldrBox').datepicker('show');
-			});
-
-  			$('#cal').click(function() {
-      			$('#datepicker').datepicker('show');
-			});
-
-			$('#cal2').click(function() {
-      			$('#datepicker2').datepicker('show');
-			});
-
-			//click arrow, display left menu
+		//click arrow, display left menu
 			$("#arrow").click(function(e){
     			$("#lftMenu").show();
      			e.stopPropagation();
@@ -298,15 +185,15 @@
 			$(document).click(function(){
     			$("#lftMenu").hide();
 			});
-	});
-	</script>
 
+		});
+	</script>
+	
 </head>
 
 <body>
-	
+
 <!---------------------------------------------- Side Menu ---------------------------------------------->
-	
 	<div class="body-layer"></div>
 	<section class="header">
 		<div class="header-box">
@@ -315,18 +202,9 @@
 				<img src="../resources/css/Images/Logo.png" alt="logo">
 			</figure>
 			<h5 class="logged">Logged In As: </h5>
-			<h5 class="user"><?php echo $_SESSION["defaultRole"];?></h5>
-			<div id="arrow-container"><img src="../resources/css/Images/Icons/38294.png" id="arrow"></div>
-			<div id="noti-container"><img src="../resources/css/Images/Icons/Nitification.png" id="noti"></div>
-			<div id="calendar-container"><img src="../resources/css/Images/Icons/calendar.png" id="cldr"></div>
-			<div id="cal-container"><img src="../resources/css/Images/Icons/calculator.png" id="ccultr"></div>
+			<h5 class="user">Admin</h5>
 		</div>
 	</section>
-
-	<div class="circle arrow"></div>
-	<div class="circle noti"></div>
-	<div class="circle calendar"></div>
-	<div class="circle cal"></div>
 	
 	<section class="side-menu-box">
 		<div class="profile-pic-boarder">
@@ -335,43 +213,36 @@
 		</div>
 		
 		<div class="user">
-			<h3 id="name"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></h3>
-			<h3 id="uname"><?php echo "( ".$_SESSION['username']." )"; ?></h3>
+			<h3>John Doy</h3>
 		</div>
 		
 		<div class="menu-container">
 		<ul class="side-menu">
-
-			<?php
-
-			$arr = $_SESSION["screens"];
-
-			function prt($id, $arr){
-				for($x = 0 ; $x<count($arr) ; $x++){
-					if($id == $arr[$x][3]){
-						if($arr[$x][1] == ""){
-							echo "<li class='has-sub'><a href='#' class='main-menu-item'>".$arr[$x][0]."<i class='material-icons main md-20'>chevron_right</i></a>";
-							echo "<ul class='sub-menu-container'>";		
-							prt($arr[$x][2], $arr);
-							echo "</ul>";
-							echo "</li>";
-
-						}else{
-							if($arr[$x][3] == 0){
-								echo "<img src='../resources/css/Images/Icons/Dashboard.png' id='dashbrd'><li><a href='".$arr[$x][1]."' class='dashboard'>".$arr[$x][0]."</a></li>";
-							}else{
-								echo "<li><a href='".$arr[$x][1]."' class='dashboard'><i class='material-icons'>arrow_right_alt</i>".$arr[$x][0]."</a></li>";	
-							}
-							
-						}
-					}
-				}
-			}
-			
-			prt(0, $arr);
-
-			?>
-
+			<li><a href="#" class="dashboard">Dashboard</a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Staff<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#"><i class="material-icons">arrow_right_alt</i>Add Member</a></li>
+					<li><a href="#"><i class="material-icons">arrow_right_alt</i>Manage Member</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Supplier<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Supplier</a></li>
+					<li><a href="#">Manage Supplier</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Customer<i class="material-icons main md-20">chevron_right</i></a>
+				<ul class="sub-menu-container">
+					<li><a href="#">Add Customer</a></li>
+					<li><a href="#">Manage Customer</a></li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Products<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Stock<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Sales<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Purchases<i class="material-icons main md-20">chevron_right</i></a></li>				
+			<li class="has-sub"><a href="#" class="main-menu-item">Expenses<i class="material-icons main md-20">chevron_right</i></a></li>
+			<li class="has-sub"><a href="#" class="main-menu-item">Reports<i class="material-icons main md-20">chevron_right</i></a></li>
 		</ul>
 	</div>
 	</section>
@@ -382,8 +253,8 @@
 	
 	<section class="main-bar">
 		<div class="main-bar-box">
-			<h3>SUPPLIER</h3>
-			<h6>Home / Supplier</h6>
+			<h3>PRODUCT</h3>
+			<h6>Home / Product</h6>
 		</div>
 	</section>
 
@@ -412,27 +283,44 @@
 <div class="tableBoxGray">
 <!-------------- Topic ---------------->		
 	<div class="topic">
-		<h4>SUPPLIER</h4>
+		<h4>PRODUCTS</h4>
 	</div>
 <!-------------- Topic ---------------->
-	<div id="wrapper">
-		<div id="Supplier">
-			<table id="supplier" cellspacing="0" width="100%" class="display cell-border stripe">
 
-			</table>
+	<div id="wrapper">
+		<div id="tabs">
+
+			<ul id="tabList">
+				<li id="medicineTab" class="ui-tabs-active"><a href="#Medicine" onclick="proType='Medicine';switchTab('medicineTab');load();">MEDICINE</a></li>
+				<li id="groceryTab"><a href="#Grocery" onclick="proType='Grocery';switchTab('groceryTab');load();">GROCERY</a></li>
+			</ul>
+	
+			<div id="Medicine">
+				<table id="medicine" cellspacing="0" width="100%" class="display cell-border stripe">
+
+				</table>
+			</div>
+			
+			<div id="Grocery">
+				<table id="grocery" cellspacing="0" width="100%" class="display cell-border stripe">
+			
+				</table>
+			</div>
+	
 		</div>
 	</div>
 
-	<!-- new member -->
+	<!-- new product -->
 	<div class="button">
 		<button type="" value="NEW" id="new">NEW</button>
 	</div>
 
 	<!--<div class="msg">
-		<span id="message">SUPPLIER ADDED SUSSCEEFULLY...!!!</span>
+		<span id="message">PRODUCT ADDED SUSSCEEFULLY...!!!</span>
 	</div>-->
-
-</div>
+	
+</div>	
+<!------------------------------------------- TableContainer -------------------------------------------->
 
 <!-- The Modal for supplier data -->
 <div id="supModal" class="modal">
@@ -471,60 +359,71 @@
 </div>
 
 <!-- The Modal for adding new member -->
-<div id="newSupModal" class="SupModal">
+<div id="newProModal" class="ProModal">
 
   <!-- Modal content -->
-  <div class="newSupModal-content">
+  <div class="newProModal-content">
 
-  <div id="addSupWrap">	
+  <div id="addProWrap">	
 
   	<div class="topic2">
-		<h4>ADDING NEW SUPPLIER</h4>
+		<h4>ADDING NEW PRODUCT</h4>
 	</div>
 
 	<div class="form">
 			
 			<form>
 				
-				<!--<div class="input">
-					<input type="text" name="s_code" id="s_code" class="supplier-details" placeholder="Supplier Code" onfocus="cleanValErrorInput('s_code'); cleanDivError('s_codeError');cleanDivError('otherError');">
-					<span class="line"></span><span id="s_codeError" class="val-error"></span>
-				</div>-->
-				
 				<div class="input">
-					<input type="text" name="f_name" id="f_name" class="supplier-details" placeholder="First Name" onfocus="cleanValErrorInput('f_name'); cleanDivError('f_nameError');cleanDivError('otherError');">
-					<span class="line"></span><span id="f_nameError" class="val-error"></span>
+					<input type="text" name="pro_name" id="pro_name" class="product-details" placeholder="Product Name" onfocus="cleanValErrorInput('pro_name'); cleanDivError('pro_nameError');cleanDivError('otherError');">
+					<span class="line"></span><span id="pro_nameError" class="val-error"></span>
 				</div>
 				
 				<div class="input">
-					<input type="text" name="l_name" id="l_name" class="supplier-details" placeholder="Last Name" onfocus="cleanValErrorInput('l_name'); cleanDivError('l_nameError');cleanDivError('otherError');">
-					<span class="line"></span><span id="l_nameError" class="val-error"></span>
+					<input type="text" name="discription" id="discription" class="product-details" placeholder="Product Discription" onfocus="cleanValErrorInput('discription'); cleanDivError('discriptionError');cleanDivError('otherError');">
+					<span class="line"></span><span id="discriptionError" class="val-error"></span>
 				</div>
 				
 				<div class="input">
-					<input type="text" name="contact" id="contact" class="supplier-details" placeholder="Contact No." onfocus="cleanValErrorInput('contact'); cleanDivError('contactError');cleanDivError('otherError');">
-					<span class="line"></span><span id="contactError" class="val-error"></span>
-				</div>
-
-				<div class="input">
-					<input type="text" name="address" id="address" class="supplier-details" placeholder="Address" onfocus="cleanValErrorInput('address'); cleanDivError('addressError');cleanDivError('otherError');">
-					<span class="line"></span><span id="addressError" class="val-error"></span>
-				</div>
-
-				<div class="input">
-					<input type="text" name="email" id="email" class="supplier-details" placeholder="Email" onfocus="cleanValErrorInput('email'); cleanDivError('emailError');cleanDivError('otherError');">
-					<span class="line"></span><span id="emailError" class="val-error"></span>
-				</div>
-
-				<div class="input">
-					<select name="compony"  id="compony" class="supplier-details-compony" placeholder="Compony">
+					<select name="category"  id="category" class="product-details" placeholder="Category">
   							<?php echo "<option value='$dept_name'>$dept_name</option>"; ?>
 					</select>
 				</div>
 
 				<div class="input">
-					<select name="product" id="product" class="supplier-details-product" placeholder="Products" >
-  							
+					<input type="text" name="batch" id="batch" class="product-details" placeholder="Batch" onfocus="cleanValErrorInput('batch'); cleanDivError('batchError');cleanDivError('otherError');">
+					<span class="line"></span><span id="batchError" class="val-error"></span>
+				</div>
+
+				<div class="input">
+					<input type="text" name="pUnit" id="pUnit" class="product-details" placeholder="Purchase Unit" onfocus="cleanValErrorInput('pUnit'); cleanDivError('pUnitError');cleanDivError('otherError');">
+					<span class="line"></span><span id="pUnitError" class="val-error"></span>
+				</div>
+
+				<div class="input">
+					<input type="text" name="sUnit" id="sUnit" class="product-details" placeholder="Sales Unit" onfocus="cleanValErrorInput('sUnit'); cleanDivError('sUnitError');cleanDivError('otherError');">
+					<span class="line"></span><span id="sUnitError" class="val-error"></span>
+				</div>
+
+				<div class="input">
+					<input type="text" name="rop" id="rop" class="product-details" placeholder="Reorder Point" onfocus="cleanValErrorInput('rop'); cleanDivError('ropError');cleanDivError('otherError');">
+					<span class="line"></span><span id="ropError" class="val-error"></span>
+				</div>
+
+				<div class="input">
+					<input type="text" name="rackNo" id="rackNo" class="product-details" placeholder="Rack No" onfocus="cleanValErrorInput('rackNo'); cleanDivError('rackNoError');cleanDivError('otherError');">
+					<span class="line"></span><span id="rackNoError" class="val-error"></span>
+				</div>
+
+				<div class="input">
+					<select name="compony"  id="compony" class="product-details" placeholder="Compony">
+  							<?php echo "<option value='$dept_name'>$dept_name</option>"; ?>
+					</select>
+				</div>
+
+				<div class="input">
+					<select name="supplier" id="supplier" class="product-details" placeholder="Supplier" >
+  							<?php echo "<option value='$dept_name'>$dept_name</option>"; ?>
 					</select>
 				</div>
 
@@ -536,19 +435,19 @@
 		<div class="v-line">
 		</div>
 		
-		<div class="supplier-profile">
-			<div class="sup-profile-pic-boarder">
-				<div class="sup-profile-pic">
+		<div class="product-profile">
+			<div class="pro-profile-pic-boarder">
+				<div class="pro-profile-pic">
 					<img src="" id="img" src="#"/>
 				</div>
 			</div>
 		
-			<div class="supplier">
+			<div class="product">
 				<h3>Profile Picture</h3>
 			</div>
 		</div>
 
-  		<div class="newMemButton">
+  		<div class="newProButton">
 			<input type="file" name="" id="upload" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)";>
 			<button type="file" value="Browse" id="browse" on>Browse</button><br>
 			<button type="submit" value="ADD" id="add" onclick="save()">ADD</button>
@@ -560,44 +459,50 @@
   </div>
    
 </div>
-
+	
 </section>
+	
 <!--***************************************************************************************************-->
 <!------------------------------------------- Content --------------------------------------------------->
 
 <script>
-	function load(){
-		drawTable("supplier",[]);
+		function load(){
+		drawTable("medicine",[]);
+		drawTable("grocery",[]);
 		
+		var formData = new FormData(); 
+		formData.append("type" , proType);
+
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var resp = jps(this.responseText);         	
 				if(resp["success"]){
 					/*load data into table*/
-					drawTable("supplier",resp["success"]);
+					drawTable("medicine",resp["success"]);
+					drawTable("grocery",resp["success"]);
 				}else{
 					/*unexpected error if none of the above*/
 					unexpectedAlertModal("Error", "Unexpected error","bg-danger");
 				}
 		   }
 		};
-		xhttp.open("POST","../controllers/supplierMed.php", true);
-		xhttp.send();
+		xhttp.open("POST","../controllers/productMed.php", true);
+		xhttp.send(formData);
 	}
-</script>
+	</script>
 
-<script>
+	<script>
 		// supplier data
 		// Get modal
-		var popup = document.getElementById("supModal");
+		var popup = document.getElementById("proModal");
 		var btn = document.getElementById("ok");
 		// Get the button that opens the modal
 		var clickRow = document.getElementById("");
 
 		// clicks the button, open popup 
 		clickRow.onclick = function() {
-			$("#supModal,.modal-content").fadeIn();
+			$("#proModal,.modal-content").fadeIn();
 		 // popup.style.display = "block";
 		}
 
@@ -610,21 +515,21 @@
 
 		btn.onclick = function() {
 		  //popup.style.display = "none";
-		  $("#supModal,.modal-content").fadeOut();
+		  $("#proModal,.modal-content").fadeOut();
 		}
 	</script>
 	
 	<script>
 		// add suplier
 		// Get modal
-		var popup = document.getElementById("newSupModal");
+		var popup = document.getElementById("newProModal");
 		var btnClose = document.getElementById("add");
 		// Get the button that opens the modal
 		var btnOpen = document.getElementById("new");
 
 		// clicks the button, open popup 
 		btnOpen.onclick = function() {
-			$("#newSupModal,.newSupModal-content").fadeIn();
+			$("#newProModal,.newProModal-content").fadeIn();
 		 // popup.style.display = "block";
 		}
 
@@ -637,7 +542,7 @@
 
 		btnClose.onclick = function() {
 		  //popup.style.display = "none";
-		  $("#newSupModal,.newSupModal-content").fadeOut();
+		  $("#newProModal,.newProModal-content").fadeOut();
 		}
 
 	</script>
@@ -666,11 +571,6 @@
 			document.getElementById("img").src = "../resources/css/Images/default/default.png";	
 		}
 	</script>
-
-</body>
 	
+</body>
 </html>
-
-<?php
- } 
- ?>

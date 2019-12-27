@@ -35,11 +35,11 @@
 	
 <!--*************************************** JQery UI ***************************************---> 
 	
-<!----------------- Icon Libraries ----------------------------------------
+<!----------------- Icon Libraries ------------------------------------------>
 	<script src="https://kit.fontawesome.com/yourcode.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
---------------- Icon Libraries ---------------------------------------->
+<!--------------- Icon Libraries ---------------------------------------->
 
 </script>
 
@@ -150,7 +150,7 @@
   			});
   			$("#grnDate").mousedown(function() {
 				$("#grnDate").css({
-      				"box-shadow": "0 0 3px .5px rgba(255,255,255,1)",//#d3d3d3
+      				"box-shadow": "0 0 3px .5px dodgerblue",//#d3d3d3, rgba(255,255,255,1)
     			});
   			});
   			$("#grnDate").mouseup(function() {

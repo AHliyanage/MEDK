@@ -49,7 +49,7 @@
 
     	 // ARRAY FOR HEADER.
     	var tableHead = new Array();
-    	tableHead = ['Item ID', 'Item', 'Batch NO', 'Return Qty','Price','Option']; 
+    	tableHead = ['Item ID', 'Item', 'Batch NO', 'Qty Bought', 'Qty Available', 'Qty Return','Buying Price', 'Selling Price', 'Profit Percentage','Option']; 
 
         var grnTable = document.getElementById('table-grn');
 
@@ -61,15 +61,15 @@
             var td = document.createElement('td');          // TABLE DEFINITION.
             td = tr.insertCell(c);
 
-            if (c == 5) {           // FIRST COLUMN.
+            if (c == 9) {           // FIRST COLUMN.
                 // ADD A BUTTON.
                 var button = document.createElement('input');
 
                 // SET INPUT ATTRIBUTE.
-                txt.setAttribute('id', 'removeData');
+                button.setAttribute('id', 'removeData');
                 button.setAttribute('type', 'button');
                 button.setAttribute('value', 'Remove');
-                button.setAttribute('style', 'height: 25px; width: 65px; border: none; background-color: transparent; border: 1.5px solid rgba(255,255,255,1.00); background-color: rgba(255,255,255,0.2); border-radius: 4px; outline: none; color: rgba(255,255,255,1.00); transition-duration: 0.4s; align: center;');
+                /*button.setAttribute('style', 'height: 25px; width: 65px; border: none; background-color: transparent; border: 1.5px solid rgba(255,255,255,1.00); background-color: rgba(255,255,255,0.2); border-radius: 4px; outline: none; color: rgba(255,255,255,1.00); transition-duration: 0.4s; align: center;');*/
 
                 // ADD THE BUTTON's 'onclick' EVENT.
                 button.setAttribute('onclick', 'removeRow(this)');
@@ -93,6 +93,12 @@
     function removeRow(rmvButton) {
         var grnTable = document.getElementById('table-grn');
         grnTable.deleteRow(rmvButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+
+       /* var rmvButton = document.getElementById('removeData');
+		 var children = $("#table-grn").children();
+        if (children.length == 1) {
+        	rmvButton.disabled;
+        }*/
     }
 
     // EXTRACT AND SUBMIT TABLE DATA.
@@ -114,6 +120,8 @@
         // SHOW THE RESULT IN THE CONSOLE WINDOW.
         console.log(values);
     }
+
+
 </script>
 <!-- GRN table -->
 
@@ -324,7 +332,7 @@
 	<!-------------- Topic ---------------->
 
 		<section class="grn-head-left">
-			<h3>GRN No :</h3>
+			<h3>GRN No :</h3><input type="text" id="grnNo-txt" value="100" disabled>
 			<img src="../resources/css/Images/Icons/magnify.png" alt="icon-search" id="search"><input type="text" id="findGRN" onkeyup="myFunction()" placeholder="Search GRN for void.."><span class="line"></span>
 		</section>
 
@@ -352,12 +360,21 @@
 				  <tr>
     				<th id="o">Item ID</th>
     				<th id="t">Item</th>
-    				<th id="th">Batch No:</th>
-    				<th id="f">Return Qty</th>
-    				<th id="fi">Price</th>
-    				<th id="s">Option</th>
+    				<th id="th">Batch No</th>
+    				<th id="f">Qty Bought</th>
+    				<th id="fi">Qty Available</th>
+    				<th id="s">Qty Return</th>
+    				<th id="se">Buying Price</th>
+    				<th id="e">Selling Price</th>
+    				<th id="n">Profit Percentage</th>
+    				
+    				<th id="ten">Option</th>
   				</tr>
   				<tr>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
+    				<td><input type="text" id="tableData"></td>
     				<td><input type="text" id="tableData"></td>
     				<td><input type="text" id="tableData"></td>
     				<td><input type="text" id="tableData"></td>
@@ -393,6 +410,10 @@
 	</div>
 
 </section>
+
+<script>
+	//document.getElementById("issued-name").value = "Johnny Bravo";
+</script>
 	
 <!--***************************************************************************************************-->
 <!------------------------------------------- Content --------------------------------------------------->
