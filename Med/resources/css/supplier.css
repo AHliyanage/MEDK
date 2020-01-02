@@ -236,7 +236,7 @@ background: linear-gradient(to bottom, #fff 0%, #4bebf3 100%);
 	
 }
 
-#add:hover {
+#add:hover, #add2:hover {
   	background-color: rgba(51,255,204,0.15);
   	color: rgba(255,255,255,1.00);
 	

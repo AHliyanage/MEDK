@@ -171,14 +171,15 @@ function contactFormat($id, $lable, $value){
 	return $sub;
 }
 
-// function firstIndex ($id, $label, $value){
-// 	$sub2 = array();
-// 	if(strpos(trim($value), "@")==0 || strpos(trim($value), "@")==-1){
-// 		array_push($sub, $id);
-// 		array_push($sub,"Invalid positioning of '@' in ".$lable);
-// 	}
-// 		return $sub2;
-// }		
+/*function firstIndex ($id, $label, $value){
+	$sub2 = array();
+	if(strpos(trim($value), "@")==0 || strpos(trim($value), "@")==-1){
+		array_push($sub, $id);
+		array_push($sub,"Invalid positioning of '@' in ".$lable);
+	}
+		return $sub2;
+
+}	*/	
 
 function email($id, $lable, $value){
 	$sub = Array();
@@ -212,7 +213,7 @@ function unameFormat($id, $lable, $value){
 	$sub = Array();
 	if(!preg_match("/^[0-9A-Za-z ]*$/", trim($value))){
 		array_push($sub, $id);
-		array_push($sub,"Only alphabatics,numbers and white spaces are allowed");
+		array_push($sub,"Only alphabatics, numbers and white spaces are allowed");
 	}
 	return $sub;
 }

@@ -119,6 +119,18 @@
       			"box-shadow": "none"
     			});
   			});
+  			$("#upload").mousedown(function() {
+				$("#browse").css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#upload").mouseup(function() {
+    			$("#browse").css({
+      			"box-shadow": "none"
+    			});
+  			});
+
+
 		});
 	</script>
 	
@@ -279,9 +291,10 @@
 		<div class="v-line">
 		</div>
 		
-		<div class="member-profile">
-			<div class="mem-profile-pic-boarder">
-				<div class="mem-profile-pic">
+		<div class="customer-profile">
+			<div class="cus-profile-pic-boarder">
+				<div class="cus-profile-pic">
+					<img src="" id="img" src="#"/>
 				</div>
 			</div>
 		
@@ -291,9 +304,10 @@
 		</div>
 		
 		<div class="button">
+			<input type="file" name="" id="upload" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)";>
 			<button type="file" value="Browse" id="browse" on>Browse</button><br>
 			<button type="submit" value="ADD" id="add" onclick="save()">ADD</button>
-			<button type="reset" value="CANCEL" id="cancel">CANCEL</button>
+			<button type="reset" value="CANCEL" id="cancel" onclick="reset()">CANCEL</button>
 		</div>
 		
 	</section>
@@ -346,45 +360,28 @@
 	}
 	</script>
 
-	<script type="text/javascript">
-		/*function cancel(){
-			  document.getElementById("fname").reset();
-			  document.getElementById("lname").reset();
-			  document.getElemensByClassName("role").reset();
-			  document.getElementByClassName("gender").reset();
-			  document.getElementById("datepicker").reset();
-			  document.getElementById("NIC").reset();
-			  document.getElementById("address").reset();
-			  document.getElementById("contact").reset();
-			  document.getElementById("emg").reset();
-			  document.getElementById("email").reset();
-			  document.getElementById("qualifications").reset();
-			  document.getElementById("datepicker2").reset();
-			  document.getElementById("basic").reset();
-			  document.getElementById("uname").reset();
-			  document.getElementById("pwd").reset();
-			  document.getElementById("staff_id").reset();
-		}*/
+	<script>
+		//upload img
+			function readURL(input) {
+	        	if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+
+	            reader.onload = function (e) {
+	                $('#img')
+	                    .attr('src', e.target.result)
+	                    .width(120)
+	                    .height(120);
+            	};
+
+            		reader.readAsDataURL(input.files[0]);
+        		}
+    		}
 	</script>
 
 	<script>
-		// Get the menu
-		var menuLeft = document.getElementById("lftMenu");
-
-		// Get the arrow that opens the modal
-		var arow = document.getElementById("arrow");
-
-		// clicks the arrow, open menu 
-		arow.onclick = function() {
-		  //menuLeft.style.display = "block";
-		  $("#lftMenu").fadeIn();
-		}
-
-		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
-		  if (event.target == menuLeft) {
-		    menuLeft.style.display = "none";
-		  }
+		function reset(){
+			$("form").trigger("reset");
+			document.getElementById("img").src = "../resources/css/Images/default/default.png";	
 		}
 	</script>
 	

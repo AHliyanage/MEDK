@@ -9,7 +9,7 @@ function loadData(){
 	try{
 			//get DB connection instance and execute query
 			$conn = getConnection();
-			$query = "SELECT cus_code,first_name,last_name,gender,dob,nic,address,contact_no,email FROM customer";
+			$query = "SELECT cus_id,first_name,last_name,gender,dob,nic,address,contact_no,email FROM customer";
 
 			$loginQueryResult = mysqli_query($conn, $query);
 			
@@ -17,6 +17,8 @@ function loadData(){
 					$rows=array();
 	
 					while ($row=mysqli_fetch_array($loginQueryResult)){
+						array_push($row, "<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgba(223,5,5,1.00); padding:3px; border: 1px solid rgba(223,5,5,1.00); width:60px; border-radius: 3px;' onclick='alert()'>Delete</button>","<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgb(30,144,255); padding:3px; border: 1px solid rgb(30,144,255); width:60px; border-radius: 3px;' onclick='alert()'>Update</button>");
+						
 						array_push($rows,$row);
 						//$rows[]=$row;
 					}

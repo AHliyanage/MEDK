@@ -187,7 +187,7 @@ input:focus ~ .lineMed{
 	width: 75px;
 	height: 30px;
 	left:  950px;
-	top: 350px;
+	top: 315px;
 	border-radius: 5px;
 	outline: none;
 	font-size: 16px;
@@ -386,6 +386,15 @@ td{
 
 #t{
 	width:350px;
+}
+
+#durationTxt {
+	width:350px;
+	background: transparent;
+	border: none;
+	outline: none;
+	padding-left: 5px;
+	color: black; 
 }
 
 #tableP .button {

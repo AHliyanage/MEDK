@@ -99,9 +99,7 @@
 				{"title": "NIC No."},
 				{"title": "Address" },
 				{"title": "Contact No"},
-				{"title": "E-mail"},
-				{"title": "Delete"},
-				{"title": "Update"}
+				{"title": "E-mail"}
 				],
 			"columnDefs": [
         		//{ targets: [0], visible: false},
@@ -111,9 +109,7 @@
         		{ width: "10%", targets: 3},
         		{ width: "10%", targets: 4},
         		{ width: "15%", targets: 5},
-        		{ width: "20%", targets: 6},
-        		{ width: "20%", targets: 7},
-        		{ width: "15%", targets: 8}
+        		{ width: "20%", targets: 6}
         	]
 		});
 	

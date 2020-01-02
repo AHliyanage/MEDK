@@ -107,9 +107,7 @@
 				{"title": "Age" },
 				{"title": "NIC"},
 				{"title": "Address"},
-				{"title": "Contact No."},
-				{"title": "Delete"},
-				{"title": "Update"}
+				{"title": "Contact No."}
 				],
 			"columnDefs": [
         		{ targets: [0], visible: false},
@@ -119,9 +117,7 @@
         		{ width: "12%", targets: 4},
         		{ width: "15%", targets: 5},
         		{ width: "20%", targets: 6},
-        		{ width: "15%", targets: 7},
-        		{ width: "20%", targets: 8},
-        		{ width: "15%", targets: 9}
+        		{ width: "15%", targets: 7}
         
    	 		]
 		});
@@ -136,9 +132,7 @@
 				{"title": "Age" },
 				{"title": "NIC"},
 				{"title": "Address"},
-				{"title": "Contact No."},
-				{"title": "Delete"},
-				{"title": "Update"}
+				{"title": "Contact No."}
 				],
 			"columnDefs": [
         		{ targets: [0], visible: false},
@@ -163,9 +157,7 @@
 					{"title": "Age" },
 					{"title": "NIC"},
 					{"title": "Address"},
-					{"title": "Contact No."},
-					{"title": "Delete"},
-					{"title": "Update"}	
+					{"title": "Contact No."}	
 				],
 				"columnDefs": [
 	        		{ targets: [0], visible: false},
@@ -175,9 +167,7 @@
 	        		{ width: "12%", targets: 4},
 	        		{ width: "15%", targets: 5},
 	        		{ width: "20%", targets: 6},
-	        		{ width: "15%", targets: 7},
-        			{ width: "20%", targets: 8},
-        			{ width: "15%", targets: 9}
+	        		{ width: "15%", targets: 7}
 	   	 		]	
 			});
 
@@ -191,9 +181,7 @@
 					{"title": "Age" },
 					{"title": "NIC"},
 					{"title": "Address"},
-					{"title": "Contact No."},
-					{"title": "Delete"},
-					{"title": "Update"}
+					{"title": "Contact No."}
 				],
 				"columnDefs": [
 	        		{ targets: [0], visible: false},
@@ -203,9 +191,7 @@
 	        		{ width: "12%", targets: 4},
 	        		{ width: "15%", targets: 5},
 	        		{ width: "20%", targets: 6},
-	        		{ width: "15%", targets: 7},
-        			{ width: "20%", targets: 8},
-        			{ width: "15%", targets: 9}
+	        		{ width: "15%", targets: 7}
 	   	 		]
 			});
 		
