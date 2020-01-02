@@ -251,10 +251,11 @@
 
 	<section class="content">
 
-	<div class="tableBoxGray">
+	<div class="tableBoxGray" id="view">
 
+		<!-- id="view" -->
 		<div class="topic">
-			<h4>PRESCRIPTION ORDER</h4>
+			<h4 >PRESCRIPTION ORDER</h4>
 		</div>
 
 		<div id="wrapper">
@@ -280,10 +281,40 @@
 
 			</table>-->
 
-		</section>
-	
+		<!-- The Modal for supplier data -->
+<div id="prescriptionModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+  	<h3 id="topic2">PRESCRIPTION NO :</h3><input type="text" id="topic2Box" >
+
+     <div id="prescriptionBody">
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" ><br>
+  		<input type="text" class="box" >
+
+  	 </div>
+
+  	 <div>
+  		<h5 id="pre_view">Viewed By :</h5><input type="text" id="viewedBox" >
+  	</div>
+
+  	<div class="button">
+		<button type="submit" value="ADD" id="add2" onclick="location.href = 'invoice.php';">INVOICE</button>
 	</div>
+
+  </div>
+
+</div>
+
 	</section>
+
 
 	<script type="text/javascript">
 		function load(){
@@ -305,8 +336,34 @@
 		xhttp.open("POST","../controllers/prescription_orderMed.php", true);
 		xhttp.send();
 
-		
-	}	</script>
+		}
+	</script>
+	<script>
+		// prescription Body
+		// Get modal
+		var popup = document.getElementById("prescriptionModal");
+		var btnClose = document.getElementById("invoice");
+		// Get the button that opens the modal
+		var btnOpen = document.getElementById("view");
+
+		// clicks the button, open popup 
+		btnOpen.onclick = function() {
+			$("#prescriptionModal,.modal-content").fadeIn();
+		 // popup.style.display = "block";
+		}
+
+		// clicks anywhere outside of the popup, close it
+		window.onclick = function(event) {
+		  if (event.target == popup) {
+		    popup.style.display = "none";
+		  }
+		}
+
+		btnClose.onclick = function() {
+		  //popup.style.display = "none";
+		  $("#prescriptionModal,.modal-content").fadeOut();
+		}
+	</script>
 	
 </body>
 	

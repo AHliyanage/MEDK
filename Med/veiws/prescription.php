@@ -246,15 +246,15 @@
 
 	<section class="content">
 		<div class="topic">
-			<h4>ADDING NEW PRESCRIPTION</h4>
+			<h4>REGISTRATION OF PRESCRIPTION</h4>
 		</div>
 		<div class="form">
 			
 			<form>
 				
 				<div class="input">
-					<input type="text" id="cId" class="pre-details" placeholder="Customer ID" onfocus="cleanValErrorInput('cId'); cleanDivError('cIdError');cleanDivError('otherError');">
-					<span class="line"></span><span id="cIdError" class="val-error"></span><span id="cIdError"></span>
+					<input type="text" id="cM" class="pre-details" placeholder="Customer Mobile" onfocus="cleanValErrorInput('cM'); cleanDivError('cMError');cleanDivError('otherError');">
+					<span class="line"></span><span id="cMError" class="val-error"></span><span id="cMError"></span>
 				</div>
 				
 				<div class="input">
@@ -263,14 +263,10 @@
 				</div>
 				
 				<div class="input">
-					<input type="text" id="doc" class="pre-details" placeholder="Doctor" onfocus="cleanValErrorInput('doc'); cleanDivError('docError');cleanDivError('otherError');">
+					<input type="text" id="doc" class="pre-details" placeholder="Doctor Name" onfocus="cleanValErrorInput('doc'); cleanDivError('docError');cleanDivError('otherError');">
 					<span class="line"></span><span id="docError" class="val-error"></span><span id="docError"></span>
 				</div>
-				
-				<div class="input">
-					<input type="text" id="datepicker" class="pre-details" placeholder="Date & Time                                                                             D                       M                       Y" onfocus="cleanValErrorInput('datepicker'); cleanDivError('datepickerError');cleanDivError('otherError');"><span class="line"></span><span id="datepickerError" class="val-error"></span>
-					<img src="../resources/css/Images/Icons/calendar-month-outline.png" alt="icon-calender" id="cal2">
-				</div><br><br>
+				<br><br>
 
 				<div class="input">
 					<img src="../resources/css/Images/Icons/magnify.png" alt="icon-search" id="search"><input type="text" id="findMed" onkeyup="myFunction()" placeholder="Search for Drugs.."><span class="lineMed"></span>
@@ -289,11 +285,11 @@
 			<table id="tablePre">
 				<tr>
     				<th id="o">Drug</th>
-    				<th id="t">Dose</th>
+    				<th id="t">Duration</th>
   				</tr>
   				<tr>
     				<td></td>
-    				<td></td>
+    				<td><input type="text" id="durationTxt"></td>
     			</tr>
 
 			</table>
@@ -301,7 +297,7 @@
 			<div class="button">
 
 				<button type="" value="new" id="new">New Prescription</button>
-				<button type="reset" value="CANCEL" id="cancel">CANCEL</button>
+				<button type="reset" value="CANCEL" id="cancel" onclick="reset()">CANCEL</button>
 				<button type="submit" value="CO" id="co" onclick="save()">Create Order</button>
 				
 			</div>
@@ -310,25 +306,10 @@
 		
 	</section>
 
-	<script type="text/javascript">
-		/*function cancel(){
-			  document.getElementById("fname").reset();
-			  document.getElementById("lname").reset();
-			  document.getElemensByClassName("role").reset();
-			  document.getElementByClassName("gender").reset();
-			  document.getElementById("datepicker").reset();
-			  document.getElementById("NIC").reset();
-			  document.getElementById("address").reset();
-			  document.getElementById("contact").reset();
-			  document.getElementById("emg").reset();
-			  document.getElementById("email").reset();
-			  document.getElementById("qualifications").reset();
-			  document.getElementById("datepicker2").reset();
-			  document.getElementById("basic").reset();
-			  document.getElementById("uname").reset();
-			  document.getElementById("pwd").reset();
-			  document.getElementById("staff_id").reset();
-		}*/
+	<script>
+		function reset(){
+			$("form").trigger("reset");	
+		}
 	</script>
 	
 </body>

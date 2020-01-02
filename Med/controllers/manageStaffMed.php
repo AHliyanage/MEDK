@@ -1,13 +1,14 @@
 <?php
 //import db file
 require("dbMed.php");
+
 session_start();
 
 //define save function
 function loadData(){
 	//create default php object for AJAX response
 	$response = new stdClass();
-	try{
+	try{	
 			$type = $_POST['type'];
 			//get DB connection instance and execute query
 			$conn = getConnection();
@@ -20,9 +21,9 @@ function loadData(){
 	
 					while ($row=mysqli_fetch_array($loginQueryResult)){
 						
-						array_push($row, "<button  style='background-color: rgba(255,255,255,1); color:rgba(223,5,5,1.00); padding:3px; border: 1px solid rgba(223,5,5,1.00); width:60px; border-radius: 3px;' onclick='alert()'>CLICK</button>");
+						array_push($row, "<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgba(223,5,5,1.00); padding:3px; border: 1px solid rgba(223,5,5,1.00); width:60px; border-radius: 3px;' onclick='alert()'>Delete</button>","<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgb(30,144,255); padding:3px; border: 1px solid rgb(30,144,255); width:60px; border-radius: 3px;' onclick='alert()'>Update</button>");
 						array_push($rows,$row);
-						//array_push($rows,$row);
+						//array_push($row, "<button onclick='alert()'>CLICK</button>");
 						//$rows[]=$row;
 					}
 	

@@ -9,7 +9,7 @@ function loadData(){
 	try{
 			//get DB connection instance and execute query
 			$conn = getConnection();
-			$query = "SELECT supplier_code,first_name,last_name,contact_no,address,email,company FROM supplier";
+			$query = "SELECT supplier_id,first_name,last_name,contact_no,address,email,company FROM supplier";
 
 			$loginQueryResult = mysqli_query($conn, $query);
 			
@@ -17,14 +17,14 @@ function loadData(){
 					$rows=array();
 	
 					while ($row=mysqli_fetch_array($loginQueryResult)){
-						array_push($row, "<button onclick='alert()'>DELETE</button>");
+						array_push($row, "<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgba(223,5,5,1.00); padding:3px; border: 1px solid rgba(223,5,5,1.00); width:60px; border-radius: 3px;' onclick='alert()'>Delete</button>","<button  style='background-color: rgba(255,255,255,1); outline:none; color:rgb(30,144,255); padding:3px; border: 1px solid rgb(30,144,255); width:60px; border-radius: 3px;' onclick='alert()'>Update</button>");
 						array_push($rows,$row);
-						//array_push($rows,$row);
 						//$rows[]=$row;
 					}
 	
 				//if query executed successfully show mg
-				$response->success =$rows;	
+				$response->success =$rows;
+
 			}else{
 				//if not query executed throw exception with error msg
 				throw new Exception("Couldn't executed the query");

@@ -67,7 +67,16 @@
 			});
 
 			/*--------- Buton Shadow -------------*/
-
+			$("#upload").mousedown(function() {
+				$("#browse").css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#upload").mouseup(function() {
+    			$("#browse").css({
+      			"box-shadow": "none"
+    			});
+  			});
   			$("#add").mousedown(function() {
 				$(this).css({
       				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px rgba(51,255,204,1)" ,
@@ -206,11 +215,6 @@
 			
 
 			<form>
-
-				<div class="input">
-					<input type="text" name="s_code" id="s_code" class="supplier-details" placeholder="Supplier Code" onfocus="cleanValErrorInput('s_code'); cleanDivError('s_codeError');cleanDivError('otherError');">
-					<span class="line"></span><span id="s_codeError" class="val-error"></span>
-				</div>
 				
 				<div class="input">
 					<input type="text" name="f_name" id="f_name" class="supplier-details" placeholder="First Name" onfocus="cleanValErrorInput('f_name'); cleanDivError('f_nameError');cleanDivError('otherError');">
@@ -258,6 +262,7 @@
 		<div class="member-profile">
 			<div class="mem-profile-pic-boarder">
 				<div class="mem-profile-pic">
+					<img src="" id="img" src="#"/>
 				</div>
 			</div>
 		
@@ -267,9 +272,11 @@
 		</div>
 		
 		<div class="button">
+			<input type="file" name="" id="upload" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)";>
+
 			<button type="file" value="Browse" id="browse" on>Browse</button><br>
 			<button type="submit" value="ADD" id="add" onclick="save()">ADD</button>
-			<button type="reset" value="CANCEL" id="cancel">CANCEL</button>
+			<button type="reset" value="CANCEL" id="cancel" onclick="reset()">CANCEL</button>
 		</div>
 		
 	</section>
@@ -279,37 +286,17 @@
 		function save(){
 		var f_name = $("#fname").val();
 		var l_name = $("#lname").val();
-		var role = $("input[name='role']:checked").val();
-		var gender = $("input[name='gender']:checked").val();
-		var dob = $("#datepicker").val();
-		var nic = $("#NIC").val();
-		var address = $("#address").val();
 		var contact_no = $("#contact").val();
-		var emg_no = $("#emg").val();
+		var address = $("#address").val();
 		var email = $("#email").val();
-		var qualifications = $("#qualifications").val();
-		var j_date = $("#datepicker2").val();
-		var basic_sal = $("#basic").val();
-		var username = $("#uname").val();
-		var password = $("#pwd").val();
 		
 		
 		var formData = new FormData(); 
 		formData.append("fname" , f_name);
 		formData.append("lname" , l_name);
-		formData.append("role" , role);
-		formData.append("gender" , gender);
-		formData.append("datepicker" , dob);
-		formData.append("NIC" , nic);
-		formData.append("address" , address);
 		formData.append("contact" , contact_no);
-		formData.append("emg" , emg_no);
+		formData.append("address" , address);
 		formData.append("email" , email);
-		formData.append("qualifications" , qualifications);
-		formData.append("datepicker2" ,j_date);
-		formData.append("basic" , basic_sal);
-		formData.append("uname" , username);
-		formData.append("pwd" , password);
 		 
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -335,45 +322,28 @@
 	}
 	</script>
 
-	<script type="text/javascript">
-		/*function cancel(){
-			  document.getElementById("fname").reset();
-			  document.getElementById("lname").reset();
-			  document.getElemensByClassName("role").reset();
-			  document.getElementByClassName("gender").reset();
-			  document.getElementById("datepicker").reset();
-			  document.getElementById("NIC").reset();
-			  document.getElementById("address").reset();
-			  document.getElementById("contact").reset();
-			  document.getElementById("emg").reset();
-			  document.getElementById("email").reset();
-			  document.getElementById("qualifications").reset();
-			  document.getElementById("datepicker2").reset();
-			  document.getElementById("basic").reset();
-			  document.getElementById("uname").reset();
-			  document.getElementById("pwd").reset();
-			  document.getElementById("staff_id").reset();
-		}*/
+	<script>
+		//upload img
+			function readURL(input) {
+	        	if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+
+	            reader.onload = function (e) {
+	                $('#img')
+	                    .attr('src', e.target.result)
+	                    .width(120)
+	                    .height(120);
+            	};
+
+            		reader.readAsDataURL(input.files[0]);
+        		}
+    		}
 	</script>
 
 	<script>
-		// Get the menu
-		var menuLeft = document.getElementById("lftMenu");
-
-		// Get the arrow that opens the modal
-		var arow = document.getElementById("arrow");
-
-		// clicks the arrow, open menu 
-		arow.onclick = function() {
-		  //menuLeft.style.display = "block";
-		  $("#lftMenu").fadeIn();
-		}
-
-		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
-		  if (event.target == menuLeft) {
-		    menuLeft.style.display = "none";
-		  }
+		function reset(){
+			$("form").trigger("reset");
+			document.getElementById("img").src = "../resources/css/Images/default/default.png";	
 		}
 	</script>
 	

@@ -87,9 +87,7 @@
 				{"title": "Contact No"},
 				{"title": "Address" },
 				{"title": "E-mail"},
-				{"title": "Company"},
-				{"title": "Delete"},
-				{"title": "Update"}
+				{"title": "Company"}
 				],
 			"columnDefs": [
         		//{ targets: [0], visible: false},
@@ -99,9 +97,7 @@
         		{ width: "10%", targets: 3},
         		{ width: "10%", targets: 4},
         		{ width: "15%", targets: 5},
-        		{ width: "20%", targets: 6},
-        		{ width: "20%", targets: 7},
-        		{ width: "15%", targets: 8}
+        		{ width: "20%", targets: 6}
         	]
 		});
 	

@@ -24,9 +24,9 @@ form{
    
 }
 
-.customer-details {
+.product-details {
 	margin: 0px;
-	margin-bottom: 7px;
+	margin-bottom: 12px;
 	height: 30px;
 	width: 650px;
 	background-color: transparent;
@@ -40,33 +40,32 @@ form{
 	font-size: 14px;
 }
 
-.customer-details::placeholder {
+.product-details::placeholder {
 	/*color: rgba(61,19,0,0.7);
 	/*color: rgba(2,62,67,1.00);*/
 	color: rgba(239,239,239,0.9);
 }
 
-
-/*------------------ radio buttons -------------------------- */
-.input .male {
-	margin: 20px 168px 20px 0px;
+/*------------- drop Down -----------------*/
+#compony,#supplier,#category {
+	margin:18px 0px 10px 0px;
+	height: 30px;
+	width: 650px;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	border: 1px solid rgba(200,199,199,1.00);
+	color: #FFFFFF;
+	border-radius: 25px;
+	
+	position: relative;
+    display: inline-block;
+	
+	color: rgba(255,255,255,1.00);
+	font-size: 14px;
 }
-.input #male{
-	color: rgba(239,239,239,0.9);
-	position: absolute;
-	top: 17px;
-	left: 15px;
-}
+/*------------- drop Down -----------------*/
 
-.input #female{
-	color: rgba(239,239,239,0.9);
-	position: absolute;
-	top: 17px;
-	left: 200px;
-}
-
-
-/*------------------ radio buttons -------------------------- */
 .line {
 	position: absolute;
     left: 350px;
@@ -80,7 +79,7 @@ form{
     top: 29px; 
 }
 
-.customer-details:focus {
+.product-details:focus {
 outline: none;
 }
 
@@ -90,23 +89,10 @@ input:focus ~ .line {
     margin-left: -350px;
 }
 
-/*------------------ datepicker -------------------------- */
- .input img {
- 	position: absolute; 
-	top: 2px; 
-	right: 0 ;
-}
-
-.input img:hover {
- 	cursor: pointer;
-}
-
-/*------------------ datepicker -------------------------- */
-
 /*------------------ vericle line -------------------------- */
 .v-line {
 	width: 1px;
-	height: 660px;
+	height: 610px;
 	background: rgba(200,199,199,1.00);
 	position: absolute;
 	z-index: 102;
@@ -117,7 +103,7 @@ input:focus ~ .line {
 /*------------------ vericle line -------------------------- */
 
 /*------------------ member profile -------------------------- */
-.cus-profile-pic-boarder {
+.pro-profile-pic-boarder {
 	width: 140px;
 	height: 140px;
 	position: absolute;
@@ -129,7 +115,7 @@ input:focus ~ .line {
 	background: transparent;
 }
 
-.cus-profile-pic {
+.pro-profile-pic {
 	width: 120px;
 	height: 120px;
 	background-color: rgba(219,98,207,1.00);
@@ -141,7 +127,7 @@ input:focus ~ .line {
 	background: rgba(0,0,0,1.00);
 }
 
-.member h3 {
+.product h3 {
 	margin-top: 0;
 	margin-bottom: 25px;
 	font-size: 21px;
@@ -164,7 +150,7 @@ input:focus ~ .line {
 	height: 25px;
 	width: 90px;
 	right: 125px;
-	top: 345px;
+	top: 400px;
 	border-radius: 5px;
 	outline: none;
 	font-size: 16px;
@@ -204,7 +190,7 @@ input:focus ~ .line {
 }
 
 #cancel {
-	top:805px;
+	top:745px;
 	right: 75px;
 	border: 1.5px solid rgba(255,0,4,0.7);
 	background-color: rgba(51,255,204,0.15);
@@ -221,7 +207,7 @@ input:focus ~ .line {
 }
 
 #add {
-	top: 805px;
+	top: 745px;
 	right:175px;
 	border: 1.5px solid rgba(255,255,255,1.00);
 	background-color: rgba(255,255,255,0.2);
@@ -263,27 +249,18 @@ input:focus ~ .line {
 }
 
 .val-error {
-	/*position: absolute;
+	position: absolute;
 	background-color: red;
 	left: 650px;
 	z-index: -5;
-	display: none;*/
-	position: absolute;
-	text-align: right;
-	right:  0;
-	height: 10px;
-	bottom: 15px;
-	font-size: 14px;
-	color: rgba(223,5,5,1.00);
+	display: none;
 }
 .non-val-error {
 	position: absolute;
-	text-align: right;
-	right:  0;
-	height: 10px;
-	bottom: 15px;
-	font-size: 14px;
-	color: rgba(223,5,5,1.00);
+	background-color: red;
+	left: 650px;
+	z-index: -5;
+	display: none;
 }
 
 .ui-datepicker .ui-datepicker-title select {
@@ -297,8 +274,22 @@ input:focus ~ .line {
  
 }
 
-.customer-profile .cus-profile-pic-boarder .cus-profile-pic #img {
-/*width: 120px;
+#upload {
+	position: relative;
+	right: -1070px;
+	top: 345px;
+
+	z-index: 104;
+	opacity: 0;
+}
+
+#upload:hover ~ #browse{
+  	background-color: rgba(255,255,255,0.5);
+  	color: #555555;
+}
+
+.content .product-profile .pro-profile-pic-boarder .pro-profile-pic #img {
+	/*width: 120px;
 	height: 120px;
 	/*background-color: red/*rgba(219,98,207,1.00)*/;
 	border-radius: 50%;
@@ -309,17 +300,4 @@ input:focus ~ .line {
 	border:1px solid rgba(255,255,255,1.00);
 	/*background: transparent;
 	opacity: 1;*/
-}
-
-#upload {
-	position: relative;
-	right: -1080px;
-	top: 345px;
-	z-index: 300;
-	opacity: 0;
-}
-
-#upload:hover ~ #browse{
-  	background-color: rgba(255,255,255,0.5);
-  	color: #555555;
 }

@@ -90,7 +90,6 @@
 				dateFormat : 'dd /mm /yy',
 				changeMonth :true,													
 				changeYear :true,
-				maxDate : 'today',
 				showAnim : 'clip',
 				showOtherMonths: true
 					
@@ -461,8 +460,8 @@
 				</div>
 				
 				<div class="input">
-					<input type="text" name="uname" id="uname" class="member-details" placeholder="Username" onfocus="cleanValErrorInput('uname'); cleanDivError('unameError');cleanDivError('otherError');">
-					<span class="line"></span><span id="unameError" class="val-error"></span><span id="unameError"></span>
+					<input type="text" name="username" id="username" class="member-details" placeholder="Username" onfocus="cleanValErrorInput('username'); cleanDivError('usernameError');cleanDivError('otherError');">
+					<span class="line"></span><span id="usernameError" class="val-error"></span><span id="usernameError"></span>
 				</div>
 				
 				<div class="input">
@@ -497,7 +496,7 @@
 
 		</div>
 		<div class="msg">
-			<span id="message">MEMBER ADDED SUSSCEEFULLY...!!!</span>
+			<span id="message">MEMBER ADDED SUCCESSFULLY...!!!</span>
 		</div>
 		
 	</section>
@@ -509,19 +508,21 @@
 		var l_name = $("#lname").val();
 		var role = $("input[name='role']:checked").val();
 		var gender = $("input[name='gender']:checked").val();
-		var dob = $("#datepicker").val();
+		var dob = $("#datepicker").datepicker('getDate');
 		var nic = $("#NIC").val();
 		var address = $("#address").val();
 		var contact_no = $("#contact").val();
 		var emg_no = $("#emg").val();
 		var email = $("#email").val();
 		var qualifications = $("#qualifications").val();
-		var j_date = $("#datepicker2").val();
+		var j_date = $("#datepicker2").datepicker('getDate');
 		var basic_sal = $("#basic").val();
-		var username = $("#uname").val();
+		var username = $("#username").val();
 		var password = $("#pwd").val();
 		
-		
+		console.log(f_name);
+		console.log(dob);
+
 		var formData = new FormData(); 
 		formData.append("fname" , f_name);
 		formData.append("lname" , l_name);
@@ -536,7 +537,7 @@
 		formData.append("qualifications" , qualifications);
 		formData.append("datepicker2" ,j_date);
 		formData.append("basic" , basic_sal);
-		formData.append("uname" , username);
+		formData.append("username" , username);
 		formData.append("pwd" , password);
 		 
 		var xhttp = new XMLHttpRequest();
@@ -613,6 +614,14 @@
 
 
 	</script>	
+
+	<script>
+		function reset(){
+			$("form").trigger("reset");
+			//document.getElementById("img").src = "../resources/css/Images/default/default.png";	
+		}
+
+	</script>
 
 </body>
 	

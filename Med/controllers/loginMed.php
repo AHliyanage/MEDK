@@ -32,7 +32,7 @@ function login(){
 			//get DB connection instance and execute query
 			$conn = getConnection();
 			//query ekat locking status eka gann.
-			$query = "SELECT staff_id, first_name, last_name, password ,image,user_lock FROM staff WHERE user_name = '$username' AND password ='$password'";
+			$query = "SELECT staff_id, first_name, last_name, password  FROM staff WHERE user_name = '$username' AND password ='$password'";
 			$loginQueryResult = mysqli_query($conn, $query);
 			
 			if(mysqli_num_rows($loginQueryResult) == 1){

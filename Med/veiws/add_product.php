@@ -62,9 +62,9 @@
 
 <link rel="stylesheet" href="../resources/css/dash-board.css">
 <link rel="stylesheet" href="../resources/css/side-menu.css">
-<link rel="stylesheet" href="../resources/css/product.css">
+<link rel="stylesheet" href="../resources/css/add_product.css">
 	
-<title>Product - MEDKNIGHT</title>
+<title>Add Product - MEDKNIGHT</title>
 
 <!----------------- util.js --------------------------------------->
 <script type="text/javascript" src="../resources/js/util.js"></script>
@@ -105,61 +105,6 @@
 	}
 
 		$(document).ready(function(){
-			$("#medicine").DataTable({
-			"data":[],
-			"columns": [
-				{"title": "Name"},
-				{"title": "Description"},
-				{"title": "Batch"},
-				{"title": "Purchase Unit"},
-				{"title": "Sales Unit" },
-				{"title": "ROP"},
-				{"title": "Rack No."},
-				{"title": "Supplier"},
-				{"title": "Company"}
-				
-				],
-			"columnDefs": [
-        		{ width: "15%", targets: 0},
-        		{ width: "15%", targets: 1},
-        		{ width: "8%", targets: 2},
-        		{ width: "8%", targets: 3},
-        		{ width: "8%", targets: 4},
-        		{ width: "8%", targets: 5},
-        		{ width: "8%", targets: 6},
-        		{ width: "8%", targets: 7},
-        		{ width: "8%", targets: 8}
-   	 		]
-		});
-
-		$("#grocery").DataTable({
-			"data":[],
-			"columns": [
-				{"title": "Name"},
-				{"title": "Description"},
-				{"title": "Batch"},
-				{"title": "Purchase Unit"},
-				{"title": "Sales Unit" },
-				{"title": "ROP"},
-				{"title": "Rack No."},
-				{"title": "Supplier"},
-				{"title": "Company"}
-		
-			],
-			"columnDefs": [
-        			{ width: "15%", targets: 0},
-        		{ width: "15%", targets: 1},
-        		{ width: "8%", targets: 2},
-        		{ width: "8%", targets: 3},
-        		{ width: "8%", targets: 4},
-        		{ width: "8%", targets: 5},
-        		{ width: "8%", targets: 6},
-        		{ width: "8%", targets: 7},
-        		{ width: "8%", targets: 8}
-   	 		]	
-		});
-	
-		load();
 
 			$("#new").mousedown(function() {
 				$(this).css({
@@ -253,8 +198,8 @@
 	
 	<section class="main-bar">
 		<div class="main-bar-box">
-			<h3>PRODUCT</h3>
-			<h6>Home / Product</h6>
+			<h3>ADD PRODUCT</h3>
+			<h6>Home / Add Product</h6>
 		</div>
 	</section>
 
@@ -279,94 +224,7 @@
 
 <section class="content">
 
-<!------------------------------------------- TableContainer -------------------------------------------->
-<div class="tableBoxGray">
-<!-------------- Topic ---------------->		
-	<div class="topic">
-		<h4>PRODUCTS</h4>
-	</div>
-<!-------------- Topic ---------------->
-
-	<div id="wrapper">
-		<div id="tabs">
-
-			<ul id="tabList">
-				<li id="medicineTab" class="ui-tabs-active"><a href="#Medicine" onclick="proType='Medicine';switchTab('medicineTab');load();">MEDICINE</a></li>
-				<li id="groceryTab"><a href="#Grocery" onclick="proType='Grocery';switchTab('groceryTab');load();">GROCERY</a></li>
-			</ul>
-	
-			<div id="Medicine">
-				<table id="medicine" cellspacing="0" width="100%" class="display cell-border stripe">
-
-				</table>
-			</div>
-			
-			<div id="Grocery">
-				<table id="grocery" cellspacing="0" width="100%" class="display cell-border stripe">
-			
-				</table>
-			</div>
-	
-		</div>
-	</div>
-
-	<!-- new product -->
-	<div class="button">
-		<button type="" value="NEW" id="new">NEW</button>
-	</div>
-
-	<!--<div class="msg">
-		<span id="message">PRODUCT ADDED SUSSCEEFULLY...!!!</span>
-	</div>-->
-	
-</div>	
-<!------------------------------------------- TableContainer -------------------------------------------->
-
-<!-- The Modal for supplier data -->
-<div id="supModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-
-    <div class="user">
-  		<h3 id="uname">Cashier</h3>
-		<h3 id="name">John Doy</h3>
-  	</div>
-
-     <div id="detailSup">
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" ><br>
-  		<input type="text" class="box" >
-  	 </div>
-
-  	<div class="button">
-		<button type="submit" value="ADD" id="add2">OK</button>
-	</div>
-
-  </div>
-  <!-- Profile pic -->
-  <div class="profile-pic-boarder-model">
-	<div class="profile-pic-model">
-		
-	</div>
-  </div>
-
-</div>
-
-<!-- The Modal for adding new member -->
-<div id="newProModal" class="ProModal">
-
-  <!-- Modal content -->
-  <div class="newProModal-content">
-
-  <div id="addProWrap">	
-
-  	<div class="topic2">
+  	<div class="topic">
 		<h4>ADDING NEW PRODUCT</h4>
 	</div>
 
@@ -453,98 +311,56 @@
 			<button type="submit" value="ADD" id="add" onclick="save()">ADD</button>
 			<button type="reset" value="CANCEL" id="cancel" onclick="reset()">CANCEL</button>
 		</div>
-
-	</div>
-
-  </div>
-   
-</div>
 	
 </section>
 	
 <!--***************************************************************************************************-->
 <!------------------------------------------- Content --------------------------------------------------->
-
-<script>
-		function load(){
-		drawTable("medicine",[]);
-		drawTable("grocery",[]);
+	<script>
+		function save(){
+		var p_name = $("#pro_name").val();
+		var description = $("#discription").val();
+		var cat = $("#category").val();
+		var bat = $("#batch").val();
+		var pU = $("#pUnit").val();
+		var sU = $("#sUnit").val();
+		var reOP = $("#rop").val();
+		var rNO = $("#rackNo").val();
+		var com = $("#compony").val();
 		
 		var formData = new FormData(); 
-		formData.append("type" , proType);
-
+		formData.append("pro_name" , p_name);
+		formData.append("discription" , description);
+		formData.append("category" , cat);
+		formData.append("batch" , bat);
+		formData.append("pUnit" , pU);
+		formData.append("sUnit" , sU);
+		formData.append("rop" , reOP);
+		formData.append("rackNo" , rNO);
+		formData.append("compony" , com);
+		 
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				var resp = jps(this.responseText);         	
-				if(resp["success"]){
-					/*load data into table*/
-					drawTable("medicine",resp["success"]);
-					drawTable("grocery",resp["success"]);
+				var resp = jps(this.responseText);
+				if(resp["error"]){
+					/*show non-valerror msg from exception*/
+					displayDivError("otherError", resp["error"]);			            	
+				}else if(resp["success"]){
+					/*show success msg*/
+					window.alert(resp["success"]);
+				}else if(resp["errorList"]){
+					/*load val error list from validation*/
+					buildErrors(resp["errorList"]);
 				}else{
 					/*unexpected error if none of the above*/
 					unexpectedAlertModal("Error", "Unexpected error","bg-danger");
 				}
 		   }
 		};
-		xhttp.open("POST","../controllers/productMed.php", true);
+		xhttp.open("POST","../controllers/add_productMed.php", true);
 		xhttp.send(formData);
 	}
-	</script>
-
-	<script>
-		// supplier data
-		// Get modal
-		var popup = document.getElementById("proModal");
-		var btn = document.getElementById("ok");
-		// Get the button that opens the modal
-		var clickRow = document.getElementById("");
-
-		// clicks the button, open popup 
-		clickRow.onclick = function() {
-			$("#proModal,.modal-content").fadeIn();
-		 // popup.style.display = "block";
-		}
-
-		// clicks anywhere outside of the popup, close it
-		window.onclick = function(event) {
-		  if (event.target == popup) {
-		    popup.style.display = "none";
-		  }
-		}
-
-		btn.onclick = function() {
-		  //popup.style.display = "none";
-		  $("#proModal,.modal-content").fadeOut();
-		}
-	</script>
-	
-	<script>
-		// add suplier
-		// Get modal
-		var popup = document.getElementById("newProModal");
-		var btnClose = document.getElementById("add");
-		// Get the button that opens the modal
-		var btnOpen = document.getElementById("new");
-
-		// clicks the button, open popup 
-		btnOpen.onclick = function() {
-			$("#newProModal,.newProModal-content").fadeIn();
-		 // popup.style.display = "block";
-		}
-
-		// clicks anywhere outside of the popup, close it
-		window.onclick = function(event) {
-		  if (event.target == popup) {
-		    popup.style.display = "none";
-		  }
-		}
-
-		btnClose.onclick = function() {
-		  //popup.style.display = "none";
-		  $("#newProModal,.newProModal-content").fadeOut();
-		}
-
 	</script>
 
 	<script>

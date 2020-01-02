@@ -2,36 +2,29 @@
 //import db file
 require("dbMed.php");
 
-session_start();
+
+
 
 //define save function
-function loadData(){
+function save(){
 	//create default php object for AJAX response
 	$response = new stdClass();
-	try{	
-			$type = $_POST['type'];
+	try{
+			
 			//get DB connection instance and execute query
 			$conn = getConnection();
-			$query = "SELECT product_name,description,batch,purchase_unit,sales_unit,re_order_point,rack_no,supplier,company FROM product WHERE category='$type'";
+			$query = 'INSERT INTO staff (first_name,last_name,role,gender,dob,nic_no,address,contact_no,emergency_no,email,qualifications,joined_date,basic_salary,user_name,password ) VALUES ("aa","CC","Admin",0,NOW(),"123654789V","","1234567890","0123654789","abc@gmail.com","gjjhjh",NOW(),20000,"abcAbc","!1Aaddsfd")';
 
 			$loginQueryResult = mysqli_query($conn, $query);
 			
 			if($loginQueryResult == true){
-					$rows=array();
-	
-					while ($row=mysqli_fetch_array($loginQueryResult)){
-						array_push($rows,$row);
-						//array_push($row, "<button onclick='alert()'>CLICK</button>");
-						//$rows[]=$row;
-					}
-	
 				//if query executed successfully show mg
-				$response->success =$rows;	
+				$response->success = "New Record added Successfully..!!!";	
 			}else{
 				//if not query executed throw exception with error msg
 				throw new Exception("Couldn't executed the query");
 			}	
-		
+			
 	}catch(Exception $e){
 		//if exception thrown set error message to response
 		$response -> error = $e -> getMessage();
@@ -48,6 +41,6 @@ function loadData(){
 	echo $JSONresponse;
 }
 
-//call login function actula logic execution starts here
-loadData();
+//call login function actual logic execution starts here
+save();
 ?>

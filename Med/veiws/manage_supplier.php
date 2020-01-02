@@ -11,7 +11,6 @@
 <head>
 <meta charset="utf-8">
 
-
 <!--*************************************** JQery *******************************************-->
 	
 <!------------------------------------- JQery CDN ---------------------------------------------> 
@@ -63,7 +62,7 @@
 <link rel="stylesheet" href="../resources/css/side-menu.css">
 <link rel="stylesheet" href="../resources/css/manage-supplier.css">
 
-<title>Manage Staff - MEDKNIGHT</title>
+<title>Manage Supplier - MEDKNIGHT</title>
 
 <!----------------- util.js --------------------------------------->
 <script type="text/javascript" src="../resources/js/util.js"></script>
@@ -73,51 +72,23 @@
 	<script>
 		$(document).ready(function(){
 
-			/*---------- Toggle sub-menu ---------*/
+			/*------------- Toggle sub-menu --------------*/
 			$('.has-sub').click(function(){
 					$(this).toggleClass('tap',500);
 			});
 
-			/*---------- Collapse Menu ---------*/
-			$('#tabs').tabs({event:"click",disable:false,heightStyle:"auto"});
-
-
-			/*------------ Supplier1-table -----------*/
+			/*------------- Supplier-table ---------------*/
 			$("#supplier").DataTable({
 			"data":[],
 			"columns": [
-				{"title": "Supplier Code"},
+				{"title": "Supplier id"},
 				{"title": "First Name"},
 				{"title": "Last Name"},
 				{"title": "Contact No"},
 				{"title": "Address" },
 				{"title": "E-mail"},
 				{"title": "Company"},
-				{"title": "Delete"}
-				],
-			"columnDefs": [
-        		//{ targets: [0], visible: false},
-        		{ width: "15%", targets: 0},
-        		{ width: "15%", targets: 1},
-        		{ width: "15%", targets: 2},
-        		{ width: "10%", targets: 3},
-        		{ width: "10%", targets: 4},
-        		{ width: "15%", targets: 5},
-        		{ width: "20%", targets: 6}
-        	]
-		});
-
-			/*------------ Supplier2-table -----------*/
-			$("#supplier2").DataTable({
-			"data":[],
-			"columns": [
-				{"title": "Supplier Code"},
-				{"title": "First Name"},
-				{"title": "Last Name"},
-				{"title": "Contact No"},
-				{"title": "Address" },
-				{"title": "E-mail"},
-				{"title": "Company"},
+				{"title": "Delete"},
 				{"title": "Update"}
 				],
 			"columnDefs": [
@@ -128,19 +99,212 @@
         		{ width: "10%", targets: 3},
         		{ width: "10%", targets: 4},
         		{ width: "15%", targets: 5},
-        		{ width: "20%", targets: 6}
+        		{ width: "20%", targets: 6},
+        		{ width: "20%", targets: 7},
+        		{ width: "15%", targets: 8}
         	]
 		});
 	
 		load();
 
+			// data table row click, show data
+			var table = $('#supplier').DataTable();
+     
+   			 $('#supplier tbody').on('click', 'tr', function () {
+        			var data = table.row( this ).data();
+        			alert( 'You clicked on '+data[0]+'\'s row' );
+    			} );
+
+
+			$("#new").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px rgba(51,255,204,1)" ,
+    			});
+  			});
+  			$("#new").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+
+  			/*----------- Datepicker ------------*/
+			$('#datepicker').datepicker({
+				dateFormat : 'dd /mm /yy',
+				changeMonth :true,													
+				changeYear :true,
+				maxDate : 'today',
+				showAnim : 'clip',
+				showOtherMonths: true
+					
+			});
+
+  			$('#cldrBox').datepicker({
+				dateFormat : 'dd /mm yy',
+				showAnim : 'clip',
+				showOtherMonths: true,
+				selectOtherMonths: true
+			
+			});
+
+			/*---------- Buton Shadow -------------*/
+
+			$("#arrow").mouseenter(function() {
+				$(".arrow").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#arrow").mouseout(function() {
+				$(".arrow").css({					
+      				"display": "none",
+    			});
+  			});
+
+  			$("#arrow").mousedown(function() {
+				$(".arrow").css({
+      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#arrow").mouseup(function() {
+    			$(".arrow").css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+
+  			$("#noti").mouseenter(function() {
+				$(".noti").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#noti").mouseout(function() {
+				$(".noti").css({					
+      				"display": "none",
+    			});
+  			});
+
+  			$("#noti").mousedown(function() {
+				$(".noti").css({
+      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#noti").mouseup(function() {
+    			$(".noti").css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+
+  			$("#ccultr").mouseenter(function() {
+				$(".cal").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#ccultr").mouseout(function() {
+				$(".cal").css({					
+      				"display": "none",
+    			});
+  			});
+
+  			$("#ccultr").mousedown(function() {
+				$(".cal").css({
+      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#ccultr").mouseup(function() {
+    			$(".cal").css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+
+  			$("#cldr").mouseenter(function() {
+				$(".calendar").css({
+      				"display": "block",
+    			});
+  			});
+  			$("#cldr").mouseout(function() {
+				$(".calendar").css({					
+      				"display": "none",
+    			});
+  			});
+
+  			$("#cldr").mousedown(function() {
+				$(".calendar").css({
+      				"box-shadow": "1px 1px 8px 1px Teal, 1px 1px 8px rgba(34,22,10, 0.8)" ,//#d3d3d3
+    			});
+  			});
+  			$("#cldr").mouseup(function() {
+    			$(".calendar").css({
+      			"box-shadow": "none",
+    			});
+  			});
+
+  			$("#add").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px rgba(51,255,204,1)" ,
+    			});
+  			});
+  			$("#add").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+		
+  			$("#cancel").mousedown(function() {
+				$(this).css({
+      				"box-shadow": "1px 1px 8px 1px red, 1px 1px 8px rgba(255,0,4,0.5)" ,
+    			});
+  			});
+  			$("#cancel").mouseup(function() {
+    			$(this).css({
+      			"box-shadow": "none"
+    			});
+  			});
+	
+  			$("#upload").mousedown(function() {
+				$("#browse").css({
+      				"box-shadow": "1px 1px 8px 1px #ffffff, 1px 1px 8px #ffffff" ,
+    			});
+  			});
+  			$("#upload").mouseup(function() {
+    			$("#browse").css({
+      			"box-shadow": "none"
+    			});
+  			});
+
+  			//image click, show datepicker
+  			$('#cldr').click(function() {
+      			$('#cldrBox').datepicker('show');
+			});
+
+  			$('#cal').click(function() {
+      			$('#datepicker').datepicker('show');
+			});
+
+			$('#cal2').click(function() {
+      			$('#datepicker2').datepicker('show');
+			});
+
+			//click arrow, display left menu
+			$("#arrow").click(function(e){
+    			$("#lftMenu").show();
+     			e.stopPropagation();
+			});
+
+			$("#lftMenu").click(function(e){
+    			e.stopPropagation();
+			});
+
+			$(document).click(function(){
+    			$("#lftMenu").hide();
+			});
 	});
 	</script>
-	
+
 </head>
 
 <body>
-
+	
 <!---------------------------------------------- Side Menu ---------------------------------------------->
 	
 	<div class="body-layer"></div>
@@ -219,7 +383,7 @@
 	<section class="main-bar">
 		<div class="main-bar-box">
 			<h3>MANAGE SUPPLIER</h3>
-			<h6>Home / Supplier / Manage supplier</h6>
+			<h6>Home / Manage Supplier</h6>
 		</div>
 	</section>
 
@@ -238,7 +402,7 @@
 	</div>
 
 <!---------------------------------------------- Box Dashboard ------------------------------------------>
-	
+
 <!------------------------------------------- Content --------------------------------------------------->
 <!--***************************************************************************************************-->
 
@@ -251,56 +415,24 @@
 		<h4>MANAGE SUPPLIER</h4>
 	</div>
 <!-------------- Topic ---------------->
-
 	<div id="wrapper">
-		<div id="tabs">
+		<div id="Supplier">
+			<table id="supplier" cellspacing="0" width="100%" class="display cell-border stripe">
 
-			<ul>
-				<li id="deleteTab" class="ui-tabs-active"><a href="#Delete">DELETE</a></li>
-				<li id="updateTab"><a href="#Update">UPDATE</a></li>
-			</ul>
-	
-			<div id="Delete">
-					<span id="del-heading">Delete Member</span>
-					
-					<div id="Supplier">
-						<table id="supplier" cellspacing="0" width="100%" class="display cell-border stripe">
-
-						</table>
-					</div>
-								
-			</div>
-			
-			<div id="Update">
-				<span id="up-heading">Update Member</span>
-
-				<div id="Supplier2">
-						<table id="supplier2" cellspacing="0" width="100%" class="display cell-border stripe">
-
-						</table>
-				</div>
-
-			</div>
-	
+			</table>
 		</div>
 	</div>
-	
-</div>	
-<!------------------------------------------- TableContainer -------------------------------------------->
-	
+
+</div>
+
 </section>
-	
 <!--***************************************************************************************************-->
 <!------------------------------------------- Content --------------------------------------------------->
 
 <script>
 	function load(){
 		drawTable("supplier",[]);
-		drawTable("supplier2",[]);
 		
-		var formData = new FormData(); 
-		//formData.append("type" , userType);
-
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -308,7 +440,6 @@
 				if(resp["success"]){
 					/*load data into table*/
 					drawTable("supplier",resp["success"]);
-					drawTable("supplier2",resp["success"]);
 				}else{
 					/*unexpected error if none of the above*/
 					unexpectedAlertModal("Error", "Unexpected error","bg-danger");
@@ -316,32 +447,36 @@
 		   }
 		};
 		xhttp.open("POST","../controllers/manageSupplierMed.php", true);
-		xhttp.send(formData);
+		xhttp.send();
+	}
+</script>
+
+<script>
+	//upload img
+		function readURL(input) {
+	        if (input.files && input.files[0]) {
+	           var reader = new FileReader();
+
+	           reader.onload = function (e) {
+	               $('#img')
+	                   .attr('src', e.target.result)
+	                   .width(120)
+	                   .height(120);
+            };
+
+            	reader.readAsDataURL(input.files[0]);
+        	}
+    	}
+</script>
+
+<script>
+	function reset(){
+		$("form").trigger("reset");
+		document.getElementById("img").src = "../resources/css/Images/default/default.png";	
 	}
 </script>
 
 </body>
-
-<script>
-		// Get the menu
-		var menuLeft = document.getElementById("lftMenu");
-
-		// Get the arrow that opens the modal
-		var arow = document.getElementById("arrow");
-
-		// clicks the arrow, open menu 
-		arow.onclick = function() {
-		  //menuLeft.style.display = "block";
-		  $("#lftMenu").fadeIn();
-		}
-
-		// clicks anywhere outside menu close it
-		window.onclick = function(event) {
-		  if (event.target == menuLeft) {
-		    menuLeft.style.display = "none";
-		  }
-		}
-	</script>
 	
 </html>
 

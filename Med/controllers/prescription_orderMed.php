@@ -9,7 +9,7 @@ function loadData(){
 	try{
 			//get DB connection instance and execute query
 			$conn = getConnection();
-			$query = "SELECT * FROM prescription_order";
+			$query = "SELECT order_no, status FROM prescription_order";
 
 			$loginQueryResult = mysqli_query($conn, $query);
 			
@@ -17,7 +17,7 @@ function loadData(){
 					$rows=array();
 	
 					while ($row=mysqli_fetch_array($loginQueryResult)){
-						array_push($row, "<button onclick='alert()' style='background:none; border:none; border-bottom:1px solid blue; color:blue;' onMouseover='myF()' id='okBtn'>OK</button>");
+						array_push($row, "<button style='background:none; border:none; border-bottom:1px solid blue; color:blue;' id='view'>view</button>");
 
 						array_push($rows,$row);
 						//$rows[]=$row;
