@@ -408,8 +408,8 @@
 				
 				<!---------------------- gender Radio ------------------------------------>
 				<div class="input">
-					<input type="radio" name="gender" class="male" value="1"><lable id="male">Male</lable>
-					<input type="radio" name="gender" class="female" value="0"><lable id="female">Female</lable>
+					<input type="radio" name="gender" class="male" value="male"><lable id="male">Male</lable>
+					<input type="radio" name="gender" class="female" value="female"><lable id="female">Female</lable>
 				</div>
 				<!---------------------- Radio ------------------------------------>
 				
@@ -461,7 +461,7 @@
 				</div>
 				
 				<div class="input">
-					<input type="text" name="uname" id="uname" class="member-details" placeholder="Username" onfocus="cleanValErrorInput('uname'); cleanDivError('unameError');cleanDivError('otherError');">
+					<input type="text" name="uname" id="username" class="member-details" placeholder="Username" onfocus="cleanValErrorInput('uname'); cleanDivError('unameError');cleanDivError('otherError');">
 					<span class="line"></span><span id="unameError" class="val-error"></span><span id="unameError"></span>
 				</div>
 				
@@ -518,8 +518,12 @@
 		var qualifications = $("#qualifications").val();
 		var j_date = $("#datepicker2").val();
 		var basic_sal = $("#basic").val();
-		var username = $("#uname").val();
+		var username = $("#username").val();
 		var password = $("#pwd").val();
+		
+		console.log(role);
+		console.log(gender);
+		
 		
 		
 		var formData = new FormData(); 

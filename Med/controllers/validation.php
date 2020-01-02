@@ -81,7 +81,7 @@ function validate($inpuArray){ //$toValidate
 			}
 
 			if($validations[$y] == "firstIndex"){
-				$subTwo = contactFormat($id, $lable, $value);
+				$subTwo = firstIndex($id, $lable, $value);
 				if(count($subTwo) > 0){
 					array_push($result , $subTwo);
 					break;				
@@ -171,15 +171,14 @@ function contactFormat($id, $lable, $value){
 	return $sub;
 }
 
-function firstIndex ($id, $label, $value){
-	$sub2 = array();
-	if(strpos(trim($value), "@")==0 || strpos(trim($value), "@")==-1){
-		array_push($sub, $id);
-		array_push($sub,"Invalid positioning of '@' in ".$lable);
-	}
-		return $sub2;
-
-}		
+// function firstIndex ($id, $label, $value){
+// 	$sub2 = array();
+// 	if(strpos(trim($value), "@")==0 || strpos(trim($value), "@")==-1){
+// 		array_push($sub, $id);
+// 		array_push($sub,"Invalid positioning of '@' in ".$lable);
+// 	}
+// 		return $sub2;
+// }		
 
 function email($id, $lable, $value){
 	$sub = Array();
