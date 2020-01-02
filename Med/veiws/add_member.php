@@ -398,17 +398,17 @@
 				
 				<!---------------------- Role Radio ------------------------------------>
 				<div class="input">
-					<input type="checkbox" name="role" class="admin" value="Admin"><lable id="admin">Admin</lable>
-					<input type="checkbox" name="role" class="manager" value="Manager"><lable id="manager">Manager</lable>
-					<input type="checkbox" name="role" class="pharmacist" value="Pharmacist"><lable id="pharmacist">Pharmacist</lable>
-					<input type="checkbox" name="role" class="cashier" value="Cashier"><lable id="cashier">Cashier</lable>
+					<input type="radio" name="role" class="admin" value="Admin"><lable id="admin">Admin</lable>
+					<input type="radio" name="role" class="manager" value="Manager"><lable id="manager">Manager</lable>
+					<input type="radio" name="role" class="pharmacist" value="Pharmacist"><lable id="pharmacist">Pharmacist</lable>
+					<input type="radio" name="role" class="cashier" value="Cashier"><lable id="cashier">Cashier</lable>
 				</div>
 				<!---------------------- Radio ------------------------------------>
 				
 				<!---------------------- gender Radio ------------------------------------>
 				<div class="input">
-					<input type="radio" name="gender" class="male" value="male"><lable id="male">Male</lable>
-					<input type="radio" name="gender" class="female" value="female"><lable id="female">Female</lable>
+					<input type="radio" name="gender" class="male" value="1"><lable id="male">Male</lable>
+					<input type="radio" name="gender" class="female" value="0"><lable id="female">Female</lable>
 				</div>
 				<!---------------------- Radio ------------------------------------>
 				
@@ -520,8 +520,8 @@
 		var username = $("#username").val();
 		var password = $("#pwd").val();
 		
+		console.log(gender);
 		console.log(f_name);
-		console.log(dob);
 
 		var formData = new FormData(); 
 		formData.append("fname" , f_name);

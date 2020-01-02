@@ -9,6 +9,8 @@ session_start();
 function save(){
 	//create default php object for AJAX response
 	$response = new stdClass();
+	$last_id = 0;
+	$group_id = 0;
 	try{
 			// Parameters
 			$firstName=$_POST["fname"];
@@ -58,13 +60,32 @@ function save(){
 			$loginQueryResult = mysqli_query($conn, $query);
 			
 			if($loginQueryResult == true){
+				$last_id = $conn->insert_id;
 				//if query executed successfully show mg
-				$response->success = "New Record added Successfully..!!!";	
+				$response->success = "New Record added Successfully..!!!".$last_id;
 			}else{
 				//if not query executed throw exception with error msg
 				throw new Exception("Couldn't executed the query");
-			}	
-		}	
+			}
+
+			if($role=="Admin"){
+				$group_id =1;
+			}else if ($role=="Manager") {
+				$group_id =2;
+			}else if ($role=="Pharmacist") {
+				$group_id =3;
+			}else if ($role=="Cashier") {
+				$group_id =4;
+			}
+			$query2 = "INSERT INTO user_access(staff_id,access_group_id) VALUES($last_id,$group_id)";
+			$resut = mysqli_query($conn, $query2);
+			if($resut == true){
+				//if query executed successfully show mg
+			}else{
+				//if not query executed throw exception with error msg
+				throw new Exception("Couldn't executed the query.....xxxx");
+			}
+		}
 	}catch(Exception $e){
 		//if exception thrown set error message to response
 		$response -> error = $e -> getMessage();
